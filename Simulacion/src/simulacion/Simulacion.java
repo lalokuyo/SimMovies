@@ -17,6 +17,7 @@ public class Simulacion {
         // TODO code application logic here
         
         System.out.println("hola");
+         System.out.println("hola2222");
         
     }
 }
