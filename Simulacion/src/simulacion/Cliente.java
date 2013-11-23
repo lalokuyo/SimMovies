@@ -16,8 +16,8 @@ public class Cliente{
     int ta;
     
     //Construye nodo
-   public Cliente(int id, int tiempo){
-      id = id;
+   public Cliente(int ide, int tiempo){
+      id = ide;
       ta = tiempo;
    }
 

@@ -32,11 +32,18 @@ public class Simulacion {
          
          int time = 0;
          int numCliente = 0;
+         int size = listaCliente.size();
+         Cliente aux = listaCliente.get(0);
          
          while (time <= 100){
-             System.out.println(time);
+             System.out.println(time); 
              
-             if(listaCliente.get(numCliente) != null){
+             if(size >= 0){
+                 
+                 System.out.println("HOLA " + aux.getInfo());
+                 size--;
+             }
+           /*  if(!listaCliente.){
                System.out.println("Entro");
                  /*if(listaCliente.get(numCliente).getTa() == time){
                      System.out.println("Entro");
@@ -45,9 +52,9 @@ public class Simulacion {
                      numCliente++;
                      
                  }
-                 */
+                 
                numCliente++;
-             }
+             }*/
              
              time++;
          }
