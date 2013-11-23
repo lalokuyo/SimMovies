@@ -4,6 +4,8 @@
  */
 package simulacion;
 
+import java.util.*;
+
 /**
  *
  * @author Eduardo
@@ -18,6 +20,14 @@ public class Simulacion {
         
         System.out.println("hola");
          System.out.println("hola COCA COLA");
+         
+         List<Object> listaCliente = new ArrayList<Object>();
+         
+         Cliente cliente = new Cliente(2, 3);
+         listaCliente.add(cliente);
+         
+         //Object a = listaCliente.getFirst();
+         System.out.println("primero: " + listaCliente);
         
     }
 }
