@@ -43,6 +43,7 @@ public class Simulacion {
              
                   if(time == listaCliente.get(numCliente).getTa()){  //Si el tiempo es igual al del llegada
                       System.out.println(" num: "+ listaCliente.get(numCliente).getTa());
+                      buffer.add(listaCliente.get(numCliente).getInfo());
                       if(numCliente < size){                        
                         numCliente++;
                       }
@@ -53,6 +54,8 @@ public class Simulacion {
              time++;
          }
          
+         //Falta definir si el buffer sera generico o no. Definir las demas clases
+         System.out.print("El Buffer tiene: " + buffer.toString());
         
     }
 }
