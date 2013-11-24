@@ -45,7 +45,7 @@ public class Simulacion {
              }
            /*  if(!listaCliente.){
                System.out.println("Entro");
-                 /*if(listaCliente.get(numCliente).getTa() == time){
+                 /*if(listaCliente.get(numCliente).getTa() == time){  ESTEEE
                      System.out.println("Entro");
                      buffer.add(cliente.getInfo());
                      System.out.println("Buffer tiene 1");
