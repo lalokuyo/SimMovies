@@ -24,45 +24,35 @@ public class Simulacion {
          
          //Cliente nuevo
          Cliente cliente = new Cliente(2, 3);
-         Cliente cliente2 = new Cliente(9, 10);
+         Cliente cliente2 = new Cliente(7, 4);
+         Cliente cliente3 = new Cliente(9, 10);
          
          //Se agrega cliente
-        listaCliente.add(cliente);
+         listaCliente.add(cliente);
          listaCliente.add(cliente2);
+         listaCliente.add(cliente3);
          
          int time = 0;
-         int numCliente = 0;
-         int size = listaCliente.size();
-         Cliente aux = listaCliente.get(0);
+         int numCliente= 0;
+         int i = 0;
+         int size = listaCliente.size()-1;
          
+         //Ciclo de los clientes y del número de iteraciones
          while (time <= 100){
-             System.out.println(time); 
+             System.out.print(time + " ");
              
-             if(size >= 0){
-                 
-                 System.out.println("HOLA " + aux.getInfo());
-                 size--;
-             }
-           /*  if(!listaCliente.){
-               System.out.println("Entro");
-                 /*if(listaCliente.get(numCliente).getTa() == time){  ESTEEE
-                     System.out.println("Entro");
-                     buffer.add(cliente.getInfo());
-                     System.out.println("Buffer tiene 1");
-                     numCliente++;
-                     
-                 }
-                 
-               numCliente++;
-             }*/
+                  if(time == listaCliente.get(numCliente).getTa()){  //Si el tiempo es igual al del llegada
+                      System.out.println(" num: "+ listaCliente.get(numCliente).getTa());
+                      if(numCliente < size){                        
+                        numCliente++;
+                      }
+                  }
+             System.out.println(""); 
+          
              
              time++;
          }
          
-         //Print
-        // System.out.println("primero: " + listaCliente.get(time).getTa());
-         //System.out.println("2: " + listaCliente.get(1));
-        
         
     }
 }
