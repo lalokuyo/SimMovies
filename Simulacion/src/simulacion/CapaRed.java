@@ -10,4 +10,6 @@ package simulacion;
  */
 public class CapaRed {
     
+    //while(Mientras haya cosas en el buffer)
+    
 }

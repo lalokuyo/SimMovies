@@ -8,24 +8,26 @@ package simulacion;
  *
  * @author Eduardo
  */
-public class Cliente{
+public class Evento{
     
     //Variables
-    Cliente nextCliente;
-    int id;
+    Evento nextEvento;
+    int id; 
     int ta;
+    int size;
     
     //Construye nodo
-   public Cliente(int ide, int tiempo){
-      id = ide;
-      ta = tiempo;
+   public Evento(int id, int ta, int size){
+      this.id = id;
+      this.ta = ta;
+      this.size = size;
    }
 
     
     //Obtiene info
    public String getInfo(){
       //System.out.print("id: " + id + "ta:" + ta);
-      return id + " " + ta;
+      return id + " " + ta + " " + size;
    }
     
    //Obtiene id
@@ -38,6 +40,12 @@ public class Cliente{
    public int getTa(){
       //System.out.print("id: " + id + "ta:" + ta);
       return ta;
+   }
+   
+     //Obtiene Size
+   public int getSize(){
+      //System.out.print("id: " + id + "ta:" + ta);
+      return size;
    }
     
 }

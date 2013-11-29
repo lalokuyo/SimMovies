@@ -11,41 +11,44 @@ import java.util.*;
  * @author Eduardo
  */
 public class Simulacion {
+    
+    
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         // TODO code application logic here
-      
+        
+ //************************************* VARIABLES ***********************************************
         //Lista de objetos 
-         List<Cliente> listaCliente = new ArrayList<Cliente>();
+         List<Evento> listaEvento = new ArrayList<Evento>();
          List<Object> buffer = new ArrayList<Object>();
-         
-         //Cliente nuevo
-         Cliente cliente = new Cliente(2, 3);
-         Cliente cliente2 = new Cliente(7, 4);
-         Cliente cliente3 = new Cliente(9, 10);
+        // Buffer carro = new Buffer();
+               
+         //Evento nuevo
+         Evento cliente = new Evento(2, 3, 10);
+         Evento cliente2 = new Evento(7, 4, 10);
+         Evento cliente3 = new Evento(2, 10, 10);
          
          //Se agrega cliente
-         listaCliente.add(cliente);
-         listaCliente.add(cliente2);
-         listaCliente.add(cliente3);
+         listaEvento.add(cliente);
+         listaEvento.add(cliente2);
+         listaEvento.add(cliente3);
          
          int time = 0;
-         int numCliente= 0;
-         int i = 0;
-         int size = listaCliente.size()-1;
+         int numEvento= 0;
+         int size = listaEvento.size()-1;
          
          //Ciclo de los clientes y del número de iteraciones
          while (time <= 100){
              System.out.print(time + " ");
              
-                  if(time == listaCliente.get(numCliente).getTa()){  //Si el tiempo es igual al del llegada
-                      System.out.println(" num: "+ listaCliente.get(numCliente).getTa());
-                      buffer.add(listaCliente.get(numCliente).getInfo());
-                      if(numCliente < size){                        
-                        numCliente++;
+                  if(time == listaEvento.get(numEvento).getTa()){  //Si el tiempo es igual al del llegada
+                      System.out.println(" num: "+ listaEvento.get(numEvento).getTa());
+                      buffer.add(listaEvento.get(numEvento).getInfo());
+                      if(numEvento < size){                        
+                        numEvento++;
                       }
                   }
              System.out.println(""); 
