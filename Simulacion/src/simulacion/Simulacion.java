@@ -46,6 +46,7 @@ public class Simulacion {
          String name = "movies.txt";
          
          AppServer.fileReader(name);
+         
          //Ciclo de los clientes y del número de iteraciones
          while (time <= 100){
              System.out.print(time + " ");

@@ -1,6 +1,6 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ *Definir acciones 
+ * 
  */
 package simulacion;
 
@@ -28,14 +28,24 @@ public class AppServer {
          try {
             BufferedReader archIn = new BufferedReader(new FileReader(name)); //archivo 1
             //PrintWriter archOut = new PrintWriter(new FileWriter(out));//archivo salida
-            String linea1 = ("");
+            String linea = ("");
+            double paquetes = 0;
+            int mtu = 20;
+            int marco = 0;
            
             
             while(archIn.ready()){
-               linea1 = archIn.readLine();
+               linea = archIn.readLine();
+               paquetes = Integer.parseInt(linea)/mtu;
+               //Verificar si hay residuo para cubrir todos los paquetes
+               if(paquetes%10 != 0)
+                   marco = (int)paquetes + 1;
+               
+               //while o for para agregar cada paquete a capa de red
+               
                
               // archOut.println(linea1);
-               System.out.println(linea1+"\n");
+               System.out.println(linea+"\n");
             }
             
             archIn.close();
