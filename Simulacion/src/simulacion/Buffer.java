@@ -12,12 +12,17 @@ import java.util.*;
 
 public class Buffer {
     
-         public List<Object> buffer;
+         public static List<Object> buffer;
          
          //Falta definirlo bien
          
          public Buffer(){
              this.buffer = new ArrayList<Object>();
          }
+         
+         public List<Object> getList() {
+             buffer.add("a");
+            return this.buffer;
+        }
                
 }

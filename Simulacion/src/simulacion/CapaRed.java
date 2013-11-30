@@ -11,5 +11,18 @@ package simulacion;
 public class CapaRed {
     
     //while(Mientras haya cosas en el buffer)
+   // Simulacion buffer.
+    public static void readFromBuffer(){
+        while(!Buffer.buffer.isEmpty()){
+            
+        }
+        
+    }
+    
+    
+    public static void addToBuffer(){
+        Buffer.buffer.add("B");
+        
+    }
     
 }
