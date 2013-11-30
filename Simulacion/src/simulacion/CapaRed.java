@@ -20,8 +20,10 @@ public class CapaRed {
     }
     
     
-    public static void addToBuffer(){
-        Buffer.buffer.add("B");
+    public static void addToBuffer(Evento evento){
+        Buffer.buffer.add("W!!\n");
+        Buffer.buffer.add(evento);
+        
         
     }
     

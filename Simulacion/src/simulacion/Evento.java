@@ -12,13 +12,16 @@ public class Evento{
     
     //Variables
     Evento nextEvento;
-    int id; 
+    
+    int idCliente; 
+    int idMarco;
     int ta;
     int size;
     
     //Construye nodo
-   public Evento(int id, int ta, int size){
-      this.id = id;
+   public Evento(int idCliente, int idMarco, int ta, int size){
+      this.idCliente = idCliente;
+      this.idMarco = idMarco;
       this.ta = ta;
       this.size = size;
    }
@@ -27,14 +30,21 @@ public class Evento{
     //Obtiene info
    public String getInfo(){
       //System.out.print("id: " + id + "ta:" + ta);
-      return id + " " + ta + " " + size;
+      return "IdCliente:" + idCliente + " idMarco:" + idMarco + " Ta:" + ta + " Size:" + size + "\n";
    }
     
-   //Obtiene id
-   public int getId(){
+   //Obtiene id del cliente
+   public int getIdCliente(){
       //System.out.print("id: " + id + "ta:" + ta);
-      return id;
+      return idCliente;
    }
+   
+      //Obtiene id del marco
+   public int getIdMarco(){
+      //System.out.print("id: " + id + "ta:" + ta);
+      return idMarco;
+   }
+   
    
     //Obtiene ta
    public int getTa(){

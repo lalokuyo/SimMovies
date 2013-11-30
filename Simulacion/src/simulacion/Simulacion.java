@@ -30,13 +30,13 @@ public class Simulacion {
          // buffer = new ArrayList<Object>();
        
                
-         //Evento nuevo
-         Evento cliente = new Evento(2, 3, 10);
-         Evento cliente2 = new Evento(7, 4, 10);
-         Evento cliente3 = new Evento(2, 10, 10);
+         //Peticiones de clientes nuevos
+         Evento cliente1 = new Evento(1, 1, 1, 10);
+         Evento cliente2 = new Evento(2, 2, 2, 10);
+         Evento cliente3 = new Evento(1, 1, 3, 10);
          
          //Se agrega cliente
-         listaEvento.add(cliente);
+         listaEvento.add(cliente1);
          listaEvento.add(cliente2);
          listaEvento.add(cliente3);
          
@@ -50,16 +50,19 @@ public class Simulacion {
          //Ciclo de los clientes y del número de iteraciones
          while (time <= 100){
              System.out.print(time + " ");
-             
-                  if(time == listaEvento.get(numEvento).getTa()){  //Si el tiempo es igual al del llegada
+                    
+                    //Si el tiempo de llegada es igual al tiempo del contador
+                  if(time == listaEvento.get(numEvento).getTa()){  
                       System.out.println(" num: "+ listaEvento.get(numEvento).getTa());
                       //buffer.add(listaEvento.get(numEvento).getInfo());
                       buffer.getList().add(listaEvento.get(numEvento).getInfo());
-                      CapaRed.addToBuffer();  //Escribe desde otro lado
+                      CapaRed.addToBuffer(listaEvento.get(numEvento));  //Escribe desde otro lado
                       if(numEvento < size){                        
                         numEvento++;
                       }
                   }
+                  
+                  
              System.out.println(""); 
           
              
@@ -67,7 +70,7 @@ public class Simulacion {
          }
          
          //Falta definir si el buffer sera generico o no. Definir las demas clases
-         System.out.print("El Buffer tiene: " + buffer.getList().toString());
+         System.out.print("El Buffer tiene:\n " + buffer.getList().toString());
         
     }
     

@@ -21,7 +21,7 @@ public class Buffer {
          }
          
          public List<Object> getList() {
-             buffer.add("a");
+             //buffer.add("a");
             return this.buffer;
         }
                
