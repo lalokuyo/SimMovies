@@ -38,7 +38,7 @@ public class AppServer {
             String linea = ("");
             
             //Variables de Calculos de paquetes
-            double paquetes = 0;
+            double paquetes = 0.0;
             int mtu = 20;       //Tamaño del paquete
             int marco = 0;      //Marco en lectura
             int denom = 0;      //Cantidad de paquetes a enviar
@@ -46,20 +46,24 @@ public class AppServer {
             
             //Parametros del evento a crear
             int idMarco = 1;
-            int ta = 0;
+            int ta = 0;//que es ta?? segùn es la cantidad de paquetes que tiene un marco, no?
             int size = 20; int residuo = 0;
             
             
             while(archIn.ready()){
                linea = archIn.readLine();
                marco = Integer.parseInt(linea); //524
-               paquetes = marco/mtu; //26.2
+               paquetes = (double)marco/mtu; //26.2
                denom = (int)paquetes;  //26
+               System.out.println("L: " + paquetes);
          
                //Verificar si hay residuo para cubrir todos los paquetes
+               
                if(paquetes%1 != 0){
+                   
                    residuo = marco - (denom * mtu); // = 4
                    resta = true;
+                   
                }
                
                //For para agregar cada paquete a una lista de atención
@@ -80,11 +84,11 @@ public class AppServer {
                idMarco++;
             }
             
-              //Impresión de los elementos en la lista
+           //Impresión de los elementos en la lista
              for(int i=0; i < responseList.size(); i++){
                 System.out.println("L: " + responseList.get(i).getInfo());
             }
-            
+           
             
             archIn.close();
             //archOut.close();
