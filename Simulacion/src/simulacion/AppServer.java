@@ -32,7 +32,7 @@ public class AppServer {
       */
       public static void fileReader(String fileName, int idCliente){
       
-         try {
+        /* try {
             BufferedReader archIn = new BufferedReader(new FileReader(fileName)); //archivo 1
             //PrintWriter archOut = new PrintWriter(new FileWriter(out));//archivo salida
             String linea = ("");
@@ -55,7 +55,7 @@ public class AppServer {
                marco = Integer.parseInt(linea); //524
                paquetes = (double)marco/mtu; //26.2
                denom = (int)paquetes;  //26
-               System.out.println("L: " + paquetes);
+              // System.out.println("L: " + paquetes);
          
                //Verificar si hay residuo para cubrir todos los paquetes
                
@@ -85,8 +85,8 @@ public class AppServer {
             }
             
            //Impresión de los elementos en la lista
-             for(int i=0; i < responseList.size(); i++){
-                System.out.println("L: " + responseList.get(i).getInfo());
+          /*   for(int i=0; i < responseList.size(); i++){
+                System.out.print("L: " + responseList.get(i).getInfo());
             }
            
             
@@ -98,7 +98,8 @@ public class AppServer {
             }
             catch (IOException ioe){
                System.out.println("Error en entrada");
-            }
+            }*/
+         System.out.println("Cheque cliente");
       }
       
       public static void response(){

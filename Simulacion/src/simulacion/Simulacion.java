@@ -33,7 +33,7 @@ public class Simulacion {
          //Peticiones de clientes nuevos
          Evento cliente1 = new Evento(1, 0, 1, 10);
          Evento cliente2 = new Evento(2, 0, 2, 10);
-         Evento cliente3 = new Evento(3, 0, 3, 10);
+         Evento cliente3 = new Evento(3, 1, 3, 10);
          Evento cliente4 = new Evento(4, 0, 9, 10);
          Evento cliente5 = new Evento(4, 0, 10, 10);
          
@@ -42,7 +42,7 @@ public class Simulacion {
          listaEvento.add(cliente2);
          listaEvento.add(cliente3);
          listaEvento.add(cliente4);
-         listaEvento.add(cliente5);
+        // listaEvento.add(cliente5);
          
          
          
