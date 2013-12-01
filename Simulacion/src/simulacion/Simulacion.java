@@ -31,11 +31,11 @@ public class Simulacion {
        
                
          //Peticiones de clientes nuevos
-         Evento cliente1 = new Evento(1, 0, 1, 10);
-         Evento cliente2 = new Evento(2, 0, 2, 10);
-         Evento cliente3 = new Evento(3, 0, 3, 10);
-         Evento cliente4 = new Evento(4, 0, 9, 10);
-         Evento cliente5 = new Evento(4, 0, 10, 10);
+         Evento cliente1 = new Evento(1, 0, 1, 10, 0);
+         Evento cliente2 = new Evento(2, 0, 2, 10, 0);
+         Evento cliente3 = new Evento(3, 0, 3, 10, 0);
+         Evento cliente4 = new Evento(4, 0, 9, 10, 0);
+         Evento cliente5 = new Evento(4, 0, 10,10, 0);
          
          //Se agrega cliente
          listaEvento.add(cliente1);
@@ -97,6 +97,7 @@ public class Simulacion {
             System.out.print("El Buffer tiene:\n " + buffer.getList().get(i).getInfo());
          }
         
+        AppCliente.nose();
     }
     
     
