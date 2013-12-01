@@ -24,7 +24,7 @@ public class CapaRed{
                         
             evento = buffer.getList().get(index);
             if(evento.idMarco == 0){
-                System.out.print("\nSI JALA \n");
+                //System.out.print("\nSI JALA \n");
                 AppServer.fileReader("Terse_Jurassic.dat", evento.idCliente);                
             }
             index++;
