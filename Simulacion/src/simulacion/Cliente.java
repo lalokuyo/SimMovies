@@ -15,13 +15,15 @@ public class Cliente {
     //Variables
     Cliente nextCliente;
     
+    int idClient; //Identificador de cliente
     int paqXmarco; //nùmero de paquetes que he recibido por marco
     int totalPaq; //Total paquetes que espero recibir en el marco
     int marcosCompletos; //La cantidad de marcos completos que he recibido
     int marcoActual; //Número de marco del que estoy recibiendo paquetes
     
     //Construye nodo
-    public Cliente(int paqXmarco, int totalPaq, int marcosCompeltos, int marcoActual){
+    public Cliente(int idClient, int paqXmarco, int totalPaq, int marcosCompletos, int marcoActual){
+        this.idClient = idClient;
         this.paqXmarco = paqXmarco;
         this.totalPaq = totalPaq;
         this.marcosCompletos = marcosCompletos;
@@ -31,18 +33,24 @@ public class Cliente {
     //Obtener Información de nodo 
     public String getInfo(){
     
-        return "paquetes por Marco:" + paqXmarco + " Total paquetes:" + totalPaq + "Marcos Completos:" + marcosCompletos + "Marco Actual:" + marcoActual + "\n";
+        return "idClient:" + idClient + "paquetes por Marco:" + paqXmarco + " Total paquetes:" + totalPaq + "Marcos Completos:" + marcosCompletos + "Marco Actual:" + marcoActual + "\n";
     }
+    
+    //Obtiene el num de cliente
+    public int getIdClient(){
+        return idClient;
+    }
+    
     
     //Obtiene cantidad de paquetes que recibido por marco
     public int getPaqXmarco(){
         return paqXmarco;
     }
     
-   /* //Fija cantidad de paquetes por que recibido por marco
+   //Fija cantidad de paquetes por que recibido por marco
     public void setPaqXmarco(int paqXmarco){
         this.paqXmarco = paqXmarco;
-    }*/
+    }
     
     //Aumenta cuando llega un nuevo paquete de ese marco
     public void AumentaPaqXmarco(){

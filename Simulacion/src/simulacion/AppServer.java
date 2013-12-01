@@ -42,11 +42,12 @@ public class AppServer {
             int mtu = 20;       //Tamaño del paquete
             int marco = 0;      //Marco en lectura
             int denom = 0;      //Cantidad de paquetes a enviar
+            int cantidadPaquetes = 0; //Cantidad de paquetes que hay por marco
             boolean resta = false;
             
             //Parametros del evento a crear
             int idMarco = 1;
-            int ta = 0;//que es ta?? segùn es la cantidad de paquetes que tiene un marco, no?
+            int ta = 0;
             int size = 20; int residuo = 0;
             
             
@@ -55,27 +56,33 @@ public class AppServer {
                marco = Integer.parseInt(linea); //524
                paquetes = (double)marco/mtu; //26.2
                denom = (int)paquetes;  //26
+<<<<<<< HEAD
               // System.out.println("L: " + paquetes);
+=======
+               //System.out.println("L: " + paquetes);
+>>>>>>> 4133f97daf93facb26a3d3664eceb22e77e0ceba
          
                //Verificar si hay residuo para cubrir todos los paquetes
+               cantidadPaquetes = denom;
                
                if(paquetes%1 != 0){
                    
                    residuo = marco - (denom * mtu); // = 4
                    resta = true;
+                   cantidadPaquetes = denom + 1;
                    
                }
                
                //For para agregar cada paquete a una lista de atención
                for(int i=0; i<denom; i++){
-                   Evento paquete = new Evento(idCliente, idMarco, ta, size);
+                   Evento paquete = new Evento(idCliente, idMarco, ta, size, cantidadPaquetes);
                    responseList.add(paquete);
                    ta++;
          
                }
                //En caso de haber residuo agregar ese también a la lista
                if(resta){
-                   Evento paquete = new Evento(idCliente, idMarco, ta, residuo);
+                   Evento paquete = new Evento(idCliente, idMarco, ta, residuo,cantidadPaquetes);
                    responseList.add(paquete);
                    resta = false;
                    residuo = 0;
@@ -85,10 +92,18 @@ public class AppServer {
             }
             
            //Impresión de los elementos en la lista
+<<<<<<< HEAD
           /*   for(int i=0; i < responseList.size(); i++){
                 System.out.print("L: " + responseList.get(i).getInfo());
             }
            
+=======
+            /* for(int i=0; i < responseList.size(); i++){
+                System.out.println("L: " + responseList.get(i).getInfo());
+            }*/
+            
+            
+>>>>>>> 4133f97daf93facb26a3d3664eceb22e77e0ceba
             
             archIn.close();
             //archOut.close();

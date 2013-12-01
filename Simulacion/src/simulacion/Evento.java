@@ -17,20 +17,22 @@ public class Evento{
     int idMarco;
     int ta;
     int size;
+    int cantPaq; //cantidad de paquetes que tiene cada marco
     
     //Construye nodo
-   public Evento(int idCliente, int idMarco, int ta, int size){
+   public Evento(int idCliente, int idMarco, int ta, int size, int cantPaq){
       this.idCliente = idCliente;
       this.idMarco = idMarco;
       this.ta = ta;
       this.size = size;
+      this.cantPaq = cantPaq;
    }
 
     
     //Obtiene info
    public String getInfo(){
       //System.out.print("id: " + id + "ta:" + ta);
-      return "IdCliente:" + idCliente + " idMarco:" + idMarco + " Ta:" + ta + " Size:" + size + "\n";
+      return "IdCliente:" + idCliente + " idMarco:" + idMarco + " Ta:" + ta + " Size:" + size + "cantidad Paquetes:" + cantPaq + "\n";
    }
     
    //Obtiene id del cliente
@@ -56,6 +58,11 @@ public class Evento{
    public int getSize(){
       //System.out.print("id: " + id + "ta:" + ta);
       return size;
+   }
+   
+   //Obtiene la cantidad de paquetes que hay en el marco
+   public int getCantPaq(){
+       return cantPaq;
    }
     
 }
