@@ -47,10 +47,10 @@ public class Cliente {
         return paqXmarco;
     }
     
-   /* //Fija cantidad de paquetes por que recibido por marco
+   //Fija cantidad de paquetes por que recibido por marco
     public void setPaqXmarco(int paqXmarco){
         this.paqXmarco = paqXmarco;
-    }*/
+    }
     
     //Aumenta cuando llega un nuevo paquete de ese marco
     public void AumentaPaqXmarco(){
