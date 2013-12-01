@@ -19,7 +19,7 @@ public class Simulacion {
      * @param args the command line arguments
      */
     
-     public static Buffer buffer = new Buffer();
+     public static Buffer buffer = new Buffer(7);
      
     public static void main(String[] args) {
         // TODO code application logic here
@@ -31,36 +31,56 @@ public class Simulacion {
        
                
          //Peticiones de clientes nuevos
-         Evento cliente1 = new Evento(1, 1, 1, 10);
-         Evento cliente2 = new Evento(2, 2, 2, 10);
-         Evento cliente3 = new Evento(1, 1, 3, 10);
+         Evento cliente1 = new Evento(1, 0, 1, 10);
+         Evento cliente2 = new Evento(2, 0, 2, 10);
+         Evento cliente3 = new Evento(3, 0, 3, 10);
+         Evento cliente4 = new Evento(4, 0, 9, 10);
+         Evento cliente5 = new Evento(4, 0, 10, 10);
          
          //Se agrega cliente
          listaEvento.add(cliente1);
          listaEvento.add(cliente2);
          listaEvento.add(cliente3);
+         listaEvento.add(cliente4);
+         listaEvento.add(cliente5);
+         
+         
          
          int time = 0;
          int numEvento= 0;
          int size = listaEvento.size()-1;
          String name = "movies.txt";
          
-         AppServer.fileReader(name);
+         //AppServer.fileReader(name);
          
          //Ciclo de los clientes y del número de iteraciones
          while (time <= 100){
              System.out.print(time + " ");
                     
-                    //Si el tiempo de llegada es igual al tiempo del contador
+                  //Si el tiempo de llegada es igual al tiempo del contador
                   if(time == listaEvento.get(numEvento).getTa()){  
                       System.out.println(" num: "+ listaEvento.get(numEvento).getTa());
-                      //buffer.add(listaEvento.get(numEvento).getInfo());
-                      buffer.getList().add(listaEvento.get(numEvento).getInfo());
-                      CapaRed.addToBuffer(listaEvento.get(numEvento));  //Escribe desde otro lado
+                      
+                     System.out.print("Entro a buffer: "+buffer.freeSpace());
+                     
+                     //Si el buffer tiene espacio se agrega un evento
+                     if(buffer.freeSpace()){
+                          buffer.getList().add(listaEvento.get(numEvento).getInfo());
+                        // buffer.getList().add(listaEvento.get(numEvento));
+                      }
+                      
+                      //CapaRed.addToBuffer(listaEvento.get(numEvento));  //Escribe desde otro lado
+                      //buffer.getList().add(name);
                       if(numEvento < size){                        
                         numEvento++;
                       }
-                  }
+                   }
+                  
+              //************ Sección de Procesamiento *********************
+               /*
+                * Si hay cosas en el buffer llamar por Round Robin
+                * 
+                */
                   
                   
              System.out.println(""); 
