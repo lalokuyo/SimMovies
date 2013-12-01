@@ -21,7 +21,7 @@ public class AppServer {
         //Lista de eventos en espera de agregarlos al buffer
         public static List<Evento> responseList = new ArrayList<Evento>();
         
-         public static String name = "movies.txt";
+        // public static String name = "movies.txt";
          //public static String archOut = "";
       
      

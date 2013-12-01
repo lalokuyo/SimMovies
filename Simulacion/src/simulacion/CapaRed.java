@@ -8,23 +8,29 @@ package simulacion;
  *
  * @author Eduardo
  */
-public class CapaRed {
-    
+public class CapaRed{
+ 
     
     //while(Mientras haya cosas en el buffer)
    // Simulacion buffer.
     public static void readFromBuffer(Buffer buffer){
         int index = 0;
-        Evento evento = new Evento(0,0,0,0);
+        Evento evento;
+        //Buffer buffer = buf;
+        System.out.print(buffer.getList().get(index).getInfo());
         
-        while(!buffer.getList().isEmpty()){
-            evento = (Evento)buffer.getList().get(index);
+        //Mientras existan elementos en el buffer se verifica 
+       //while(!buffer.getList().isEmpty()){
+                        
+            evento = buffer.getList().get(index);
             if(evento.idMarco == 0){
+                System.out.print("\nSI JALA \n");
                 AppServer.fileReader("Terse_Jurrasic.dat", evento.idCliente);                
             }
-        }
+            index++;
+       // }
         index = 0;
-        Buffer.buffer.toString();
+        
         
     }
     
@@ -32,7 +38,7 @@ public class CapaRed {
     public static void addToBuffer(Evento evento){
      //   Buffer.buffer.add("W!!\n");
         Buffer.buffer.add(evento);
-        
+        //AQUI VA ROUND ROBIN!!
         
     }
     

@@ -10,19 +10,19 @@ package simulacion;
  */
 import java.util.*;
 
-public class Buffer {
+public class Buffer{
     
-         public static List<Object> buffer;
+         public static List<Evento> buffer;
          public static int capacidad;
          
          //Falta definirlo bien
          
          public Buffer(int capacidad){
-             this.buffer = new ArrayList<Object>();
+             this.buffer = new ArrayList<Evento>();
              this.capacidad = capacidad;
          }
          
-         public List<Object> getList() {
+         public List<Evento> getList() {
              //buffer.add("a");
             return this.buffer;
         }

@@ -65,8 +65,8 @@ public class Simulacion {
                      
                      //Si el buffer tiene espacio se agrega un evento
                      if(buffer.freeSpace()){
-                          buffer.getList().add(listaEvento.get(numEvento).getInfo());
-                        // buffer.getList().add(listaEvento.get(numEvento));
+                         // buffer.getList().add(listaEvento.get(numEvento).getInfo());
+                        buffer.getList().add(listaEvento.get(numEvento));
                       }
                       
                       //CapaRed.addToBuffer(listaEvento.get(numEvento));  //Escribe desde otro lado
@@ -81,6 +81,7 @@ public class Simulacion {
                 * Si hay cosas en el buffer llamar por Round Robin
                 * 
                 */
+                // CapaRed.readFromBuffer(buffer);
                   
                   
              System.out.println(""); 
@@ -89,8 +90,12 @@ public class Simulacion {
              time++;
          }
          
+         CapaRed.readFromBuffer(buffer);
+         
          //Falta definir si el buffer sera generico o no. Definir las demas clases
-         System.out.print("El Buffer tiene:\n " + buffer.getList().toString());
+         for(int i=0; i < buffer.getList().size(); i++){
+            System.out.print("El Buffer tiene:\n " + buffer.getList().get(i).getInfo());
+         }
         
     }
     
