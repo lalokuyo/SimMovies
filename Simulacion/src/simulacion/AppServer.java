@@ -56,11 +56,9 @@ public class AppServer {
                marco = Integer.parseInt(linea); //524
                paquetes = (double)marco/mtu; //26.2
                denom = (int)paquetes;  //26
-<<<<<<< HEAD
+
               // System.out.println("L: " + paquetes);
-=======
-               //System.out.println("L: " + paquetes);
->>>>>>> 4133f97daf93facb26a3d3664eceb22e77e0ceba
+             
          
                //Verificar si hay residuo para cubrir todos los paquetes
                cantidadPaquetes = denom;
@@ -92,21 +90,11 @@ public class AppServer {
             }
             
            //Impresión de los elementos en la lista
-<<<<<<< HEAD
           /*   for(int i=0; i < responseList.size(); i++){
                 System.out.print("L: " + responseList.get(i).getInfo());
             }
-           
-=======
-            /* for(int i=0; i < responseList.size(); i++){
-                System.out.println("L: " + responseList.get(i).getInfo());
-            }*/
-            
-            
->>>>>>> 4133f97daf93facb26a3d3664eceb22e77e0ceba
-            
+
             archIn.close();
-            //archOut.close();
          }
             catch (FileNotFoundException fne){
                System.out.println("El archivo no existe");

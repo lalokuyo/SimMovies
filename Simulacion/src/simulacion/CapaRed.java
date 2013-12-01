@@ -22,7 +22,7 @@ public class CapaRed{
         //Mientras existan elementos Cliente en el buffer se verifica 
        while(!buffer.getList().isEmpty()){
                         
-<<<<<<< HEAD
+
            // evento = buffer.getList().get(index).idMarco;
            // System.out.print("lista \n:" + buffer.getList().);
            // buffer.getList().remove(index); //Quitalo de la lista
@@ -51,14 +51,8 @@ public class CapaRed{
                 index++;
                 //Aqui va lo tuyo ivonne
                 //AppCliente.funcionChida
-=======
-            evento = buffer.getList().get(index);
-            if(evento.idMarco == 0){
-                //System.out.print("\nSI JALA \n");
-                AppServer.fileReader("Terse_Jurassic.dat", evento.idCliente);                
->>>>>>> 4133f97daf93facb26a3d3664eceb22e77e0ceba
+
             }
-            
             //
         }
         //index = 0;

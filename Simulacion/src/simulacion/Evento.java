@@ -32,7 +32,7 @@ public class Evento{
     //Obtiene info
    public String getInfo(){
       //System.out.print("id: " + id + "ta:" + ta);
-      return "IdCliente:" + idCliente + " idMarco:" + idMarco + " Ta:" + ta + " Size:" + size + "cantidad Paquetes:" + cantPaq + "\n";
+      return "IdCliente:" + idCliente + " idMarco:" + idMarco + " Ta:" + ta + " Size:" + size + " QP:" + cantPaq + "\n";
    }
     
    //Obtiene id del cliente
