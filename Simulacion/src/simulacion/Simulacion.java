@@ -92,7 +92,7 @@ public class Simulacion {
          
          CapaRed.readFromBuffer(buffer);
          
-         //Falta definir si el buffer sera generico o no. Definir las demas clases
+         //Impresión de los elementos en la lista
          for(int i=0; i < buffer.getList().size(); i++){
             System.out.print("El Buffer tiene:\n " + buffer.getList().get(i).getInfo());
          }

@@ -24,7 +24,12 @@ public class AppServer {
         // public static String name = "movies.txt";
          //public static String archOut = "";
       
-     
+     /*
+      * 
+      * Este método abre el archivo que el cliente pide y luego segmenta
+      * los marcos en los distintos paquetes necesarios para transmitirlos.
+      * 
+      */
       public static void fileReader(String fileName, int idCliente){
       
          try {
@@ -40,7 +45,7 @@ public class AppServer {
             boolean resta = false;
             
             //Parametros del evento a crear
-            int idMarco = 0;
+            int idMarco = 1;
             int ta = 0;
             int size = 20; int residuo = 0;
             
@@ -73,13 +78,13 @@ public class AppServer {
                }
                
                idMarco++;
-               
-               
-               
-               
-              // archOut.println(linea1);
-               System.out.println(linea+"\n");
             }
+            
+              //Impresión de los elementos en la lista
+             for(int i=0; i < responseList.size(); i++){
+                System.out.println("L: " + responseList.get(i).getInfo());
+            }
+            
             
             archIn.close();
             //archOut.close();
@@ -94,7 +99,7 @@ public class AppServer {
       
       public static void response(){
           
-           
+          // while()
       }
   
 
