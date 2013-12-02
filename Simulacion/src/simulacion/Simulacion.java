@@ -19,9 +19,14 @@ public class Simulacion {
      * @param args the command line arguments
      */
     
+<<<<<<< HEAD
      public static Buffer buffer = new Buffer(8);
     // public static Buffer clientList = new Buffer(9);
      public static List<Cliente> readyList = new ArrayList<Cliente>();
+=======
+     public static Buffer buffer = new Buffer(7);
+     public static List<Cliente> listaCliente = new ArrayList<Cliente>();
+>>>>>>> 4eb7654f1682f2472b95d1afe2be086786cf0710
      
     public static void main(String[] args) {
         
@@ -71,6 +76,20 @@ public class Simulacion {
          listaEvento.add(pet3);
          //listaEvento.add(pet4);
         // listaEvento.add(cliente5);
+         
+         Cliente client0 = new Cliente(0, 0, 0, 0, 0);
+         Cliente client1 = new Cliente(1, 0, 0, 0, 0);
+         Cliente client2 = new Cliente(2, 0, 0, 0, 0);
+         Cliente client3 = new Cliente(3, 0, 0, 0, 0);
+         Cliente client4 = new Cliente(4, 0, 0, 0, 0);
+         
+         //Se agrega cliente
+         listaCliente.add(client0); 
+         listaCliente.add(client1);
+         listaCliente.add(client2);
+         listaCliente.add(client3);
+         listaCliente.add(client4);
+         
          
          
          
@@ -137,7 +156,11 @@ public class Simulacion {
             System.out.print("El Buffer tiene:\n " + buffer.getList().get(i).getInfo());
          }
         
+<<<<<<< HEAD
      //   AppCliente.nose();
+=======
+       
+>>>>>>> 4eb7654f1682f2472b95d1afe2be086786cf0710
     }
     
     

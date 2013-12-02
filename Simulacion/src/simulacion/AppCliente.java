@@ -12,32 +12,11 @@ import java.util.*;
  */
 public class AppCliente {
     
-    public static List<Cliente> listaCliente = new ArrayList<Cliente>(); 
+    //public static List<Cliente> listaCliente = new ArrayList<Cliente>(); 
     
-    public static void nose (){
+    public static void VideoReader (Evento cosa){
                      
-         //Peticiones de clientes nuevos
-         Cliente client1 = new Cliente(1, 0, 0, 0, 0);
-         Cliente client2 = new Cliente(2, 0, 0, 0, 0);
-         Cliente client3 = new Cliente(3, 0, 0, 0, 0);
-         Cliente client4 = new Cliente(4, 0, 0, 0, 0);
-         Cliente client5 = new Cliente(5, 0, 0, 0, 0);
-         
-         //Se agrega cliente
-         listaCliente.add(client1);
-         listaCliente.add(client2);
-         listaCliente.add(client3);
-         listaCliente.add(client4);
-         listaCliente.add(client5); 
-         
-         System.out.println("ANTES cliente MARCOS COMPLETOS: " + listaCliente.get(AppServer.responseList.get(0).getIdCliente()).getMarcosCompletos());      
-   
-        //Leo lo que hay en el buffer para ir haciendo operaciones previas a la utilización
-        for(int i=0; i < AppServer.responseList.size(); i++){
-            
-            //for(int i=0; i < 50; i++){
-               //System.out.println("L: " + AppServer.responseList.get(i).getInfo());
-            
+                 
            /*
             PSEUDOCODIGO
                  if(marcoActual == IdMarco){
@@ -47,20 +26,17 @@ public class AppCliente {
                     }      
                 }    
           */ 
-                //System.out.println("CLIENTE: " + listaCliente.get(AppServer.responseList.get(i).getIdCliente()));
-                //System.out.println("Marco Actual: "+ (listaCliente.get(AppServer.responseList.get(i).getIdCliente()).getMarcoActual()));
-                //System.out.println("IdMArco: "+ AppServer.responseList.get(i).getIdMarco());
-                
-           if((listaCliente.get(AppServer.responseList.get(i).getIdCliente()).getMarcoActual())== AppServer.responseList.get(i).getIdMarco()){
+                System.out.println("COSA "+cosa.getIdCliente());
+               if((Simulacion.listaCliente.get(cosa.getIdCliente()).getMarcoActual())== cosa.getIdMarco()){
                 
                   //  System.out.println("PaqXmarco: "+ listaCliente.get(AppServer.responseList.get(i).getIdCliente()).getPaqXmarco());
-                    listaCliente.get(AppServer.responseList.get(i).getIdCliente()).AumentaPaqXmarco();
+                    Simulacion.listaCliente.get(cosa.getIdCliente()).AumentaPaqXmarco();
                   //  System.out.println("AumentaPaqXmarco: "+ listaCliente.get(AppServer.responseList.get(i).getIdCliente()).getPaqXmarco());
                     
                 
                 
-                if((listaCliente.get(AppServer.responseList.get(i).getIdCliente()).getPaqXmarco())==(listaCliente.get(AppServer.responseList.get(i).getIdCliente()).getTotalPaq())){
-                    listaCliente.get(AppServer.responseList.get(i).getIdCliente()).AumentaMarcosCompletos();
+                if((Simulacion.listaCliente.get(cosa.getIdCliente()).getPaqXmarco())==(Simulacion.listaCliente.get(cosa.getIdCliente()).getTotalPaq())){
+                    Simulacion.listaCliente.get(cosa.getIdCliente()).AumentaMarcosCompletos();
                    // System.out.println("TotalPaquetesCompletos: "+ listaCliente.get(AppServer.responseList.get(i).getIdCliente()).getTotalPaq());
                 }
            
@@ -75,28 +51,27 @@ public class AppCliente {
            
            }         
            */
-            if((listaCliente.get(AppServer.responseList.get(i).getIdCliente()).getMarcoActual()) < AppServer.responseList.get(i).getIdMarco()){
+            if((Simulacion.listaCliente.get(cosa.getIdCliente()).getMarcoActual()) < cosa.getIdMarco()){
                  //System.out.println("Menor Marco Actual: "+ (listaCliente.get(AppServer.responseList.get(i).getIdCliente()).getMarcoActual()));
                  //System.out.println("Menor IdMArco: "+ AppServer.responseList.get(i).getIdMarco());
                 
-                 listaCliente.get(AppServer.responseList.get(i).getIdCliente()).setMarcoActual(AppServer.responseList.get(i).getIdMarco());
-                 listaCliente.get(AppServer.responseList.get(i).getIdCliente()).setPaqXmarco(1);
-                 listaCliente.get(AppServer.responseList.get(i).getIdCliente()).setTotalPaq(AppServer.responseList.get(i).getCantPaq());
-                  //System.out.println("Menor Menor Marco Actual: "+ (listaCliente.get(AppServer.responseList.get(i).getIdCliente()).getMarcoActual()));
-                  //System.out.println("Menor paqXmarco: "+ (listaCliente.get(AppServer.responseList.get(i).getIdCliente()).getPaqXmarco()));
-                 // System.out.println("Menor TotalPaq: "+ (listaCliente.get(AppServer.responseList.get(i).getIdCliente()).getTotalPaq()));
+                 Simulacion.listaCliente.get(cosa.getIdCliente()).setMarcoActual(cosa.getIdMarco());
+                 Simulacion.listaCliente.get(cosa.getIdCliente()).setPaqXmarco(1);
+                 Simulacion.listaCliente.get(cosa.getIdCliente()).setTotalPaq(cosa.getCantPaq());
+               
                  
            }
            
            
-        }
         
-         System.out.println("Despues cliente MARCOS COMPLETOS: " + listaCliente.get(AppServer.responseList.get(0).getIdCliente()).getMarcosCompletos());
-        
-        
+
+         //for(int k=0; k < Simulacion.listaCliente.size(); k++){
+                 System.out.println("ID CLIENTE "+ Simulacion.listaCliente.get(cosa.getIdCliente()).getIdClient());
+                 System.out.println("PAQXMARCO "+ Simulacion.listaCliente.get(cosa.getIdCliente()).getPaqXmarco());
+                 System.out.println("TOTAL PAQUETES "+ Simulacion.listaCliente.get(cosa.getIdCliente()).getTotalPaq());
+                 System.out.println("MARCO ACTUAL "+ Simulacion.listaCliente.get(cosa.getIdCliente()).getMarcoActual());
+                 System.out.println("MARCOS COMPLETOS "+ Simulacion.listaCliente.get(cosa.getIdCliente()).getMarcosCompletos());
      
-        
-        
         
     }
 }
