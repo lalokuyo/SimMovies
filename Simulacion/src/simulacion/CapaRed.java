@@ -47,10 +47,14 @@ public class CapaRed{
                  System.out.print("**********");
              
              //Else si el evento es respuesta para cliente    
-            }else if(index < buffer.getList().size()-1){
-                index++;
-                //Aqui va lo tuyo ivonne
-                //AppCliente.funcionChida
+            }
+            if(buffer.getList().get(index).idMarco != 0){
+                System.out.println("ENTRREEE");
+               
+               // index++;
+                AppCliente.VideoReader(buffer.getList().get(index));
+                 buffer.getList().remove(index); 
+               
 
             }
             //

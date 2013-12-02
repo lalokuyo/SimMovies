@@ -20,6 +20,7 @@ public class Simulacion {
      */
     
      public static Buffer buffer = new Buffer(7);
+     public static List<Cliente> listaCliente = new ArrayList<Cliente>();
      
     public static void main(String[] args) {
         // TODO code application logic here
@@ -45,6 +46,20 @@ public class Simulacion {
          listaEvento.add(cliente3);
          //listaEvento.add(cliente4);
         // listaEvento.add(cliente5);
+         
+         Cliente client0 = new Cliente(0, 0, 0, 0, 0);
+         Cliente client1 = new Cliente(1, 0, 0, 0, 0);
+         Cliente client2 = new Cliente(2, 0, 0, 0, 0);
+         Cliente client3 = new Cliente(3, 0, 0, 0, 0);
+         Cliente client4 = new Cliente(4, 0, 0, 0, 0);
+         
+         //Se agrega cliente
+         listaCliente.add(client0); 
+         listaCliente.add(client1);
+         listaCliente.add(client2);
+         listaCliente.add(client3);
+         listaCliente.add(client4);
+         
          
          
          
@@ -99,7 +114,7 @@ public class Simulacion {
             System.out.print("El Buffer tiene:\n " + buffer.getList().get(i).getInfo());
          }
         
-        AppCliente.nose();
+       
     }
     
     
