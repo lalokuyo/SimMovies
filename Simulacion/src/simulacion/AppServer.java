@@ -26,7 +26,7 @@ public class AppServer {
       public static void fileReader(String fileName, int idCliente){
           
           //Lista de eventos en espera de agregarlos al buffer POR cliente
-         //   Cliente cliente = new Cliente(idCliente, 0, 0, 0, 0);
+          // Cliente cliente = new Cliente(idCliente, 0, 0, 0, 0);
           System.out.println("FileReader.id: " + idCliente);
          try {
             BufferedReader archIn = new BufferedReader(new FileReader(fileName)); //archivo 1
@@ -53,9 +53,6 @@ public class AppServer {
                paquetes = (double)marco/mtu; //26.2
                denom = (int)paquetes;  //26
 
-              // System.out.println("L: " + paquetes);
-            
-         
                //Verificar si hay residuo para cubrir todos los paquetes
                cantidadPaquetes = denom;
                
@@ -96,7 +93,7 @@ public class AppServer {
             System.out.println("Lista ready: " + Simulacion.readyList.get(idCliente).idClient);  
             
             //response(Simulacion.readyList.get(idCliente));
-            //CapaRed.addToBuffer();
+            CapaRed.addToBuffer();
              
          }
             catch (FileNotFoundException fne){

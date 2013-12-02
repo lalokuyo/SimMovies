@@ -43,37 +43,19 @@ public class CapaRed{
                 System.out.println("\nCliente: " + buffer.getList().get(index).idCliente + " index: " + index);
                 AppServer.fileReader("Terse_Jurassic.dat", buffer.getList().remove(index).idCliente); //Quitalo de la lista
                 addToBuffer();
-               // addToBuffer();
+              
                 
-               /* System.out.println("size: " + buffer.getList().size());
-                //Impresión de los elementos en la lista
-                 for(int i=0; i < buffer.getList().size(); i++){
-                    System.out.print("L: " + buffer.getList().get(i).getInfo());
-                 }
-                 System.out.print("**********");*/
-            }else  
-             //Else si el evento es respuesta para cliente    
-<<<<<<< HEAD
-            if(buffer.getList().get(index).idMarco != 0){
+             //Else si el evento es respuesta para cliente       
+            }else if(buffer.getList().get(index).idMarco != 0){
                 buffer.getList().remove(index); //Quitalo de la lista
                
                 //Aqui va lo tuyo ivonne
                 //AppCliente.funcionChida
-=======
-            }
-            if(buffer.getList().get(index).idMarco != 0){
-                          
-               // index++;
-                AppCliente.VideoReader(buffer.getList().get(index));
-                 buffer.getList().remove(index); 
-               
->>>>>>> 4eb7654f1682f2472b95d1afe2be086786cf0710
 
             }
+        
             //
         }
-      // System.out.println("Se acabo");
-        //index = 0;
         
     }
     
@@ -95,13 +77,6 @@ public class CapaRed{
                 auxCliente = Simulacion.readyList.get(i);
                 System.out.println("");
                 
-                  
-                //Verificar si la lista de paquetes ya se acabo 
-                //para sacar al cliente de la lista
-                if(auxCliente.getList().isEmpty()){
-                    System.out.print("\nBorrado"); 
-                    Simulacion.readyList.remove(auxCliente);
-                }
                 
                 //Atiendelo por 0.5 segundos 
                 while(time <= quantum){
@@ -124,7 +99,14 @@ public class CapaRed{
                     time += 0.1;
                 }
                 time = 0.0;
-              
+                
+                
+                //Verificar si la lista de paquetes ya se acabo 
+                //para sacar al cliente de la lista
+                if(auxCliente.getList().isEmpty()){
+                    System.out.print("\nBorrado"); 
+                    Simulacion.readyList.remove(auxCliente);
+                }
                 
             }
          

@@ -19,14 +19,11 @@ public class Simulacion {
      * @param args the command line arguments
      */
     
-<<<<<<< HEAD
+
      public static Buffer buffer = new Buffer(8);
     // public static Buffer clientList = new Buffer(9);
      public static List<Cliente> readyList = new ArrayList<Cliente>();
-=======
-     public static Buffer buffer = new Buffer(7);
-     public static List<Cliente> listaCliente = new ArrayList<Cliente>();
->>>>>>> 4eb7654f1682f2472b95d1afe2be086786cf0710
+
      
     public static void main(String[] args) {
         
@@ -43,9 +40,9 @@ public class Simulacion {
          Cliente cliente3 = new Cliente(2, 0, 0, 0, 0);
          
          //Peticiones de clientes nuevos
-         //Evento pet1 = new Evento(0, 0, 1, 10, 0);
+         Evento pet1 = new Evento(0, 0, 1, 10, 0);
          Evento pet2 = new Evento(1, 0, 2, 10, 0);
-         Evento pet3 = new Evento(1, 0, 3, 10, 0);   
+         Evento pet3 = new Evento(2, 0, 3, 10, 0);   
          //Evento pet4 = new Evento(2, 0, 9, 10, 0);
          
        
@@ -54,44 +51,13 @@ public class Simulacion {
          readyList.add(cliente2);
          readyList.add(cliente3);
          
-          
-        /*  readyList.get(0).getList().add(pet1);
-          readyList.get(1).getList().add(pet2);
-          readyList.get(2).getList().add(pet4);
-
-         //Impresión de los elementos en la lista
-          for(int i=0; i < readyList.size(); i++){
-             
-              System.out.print("L: " + readyList.get(i).getInfo());
-          }
-         */
-         
-         
-       
-         
-         
          //Se agregan peticiones cliente
-         //listaEvento.add(pet1);
+         listaEvento.add(pet1);
          listaEvento.add(pet2);
          listaEvento.add(pet3);
          //listaEvento.add(pet4);
         // listaEvento.add(cliente5);
-         
-         Cliente client0 = new Cliente(0, 0, 0, 0, 0);
-         Cliente client1 = new Cliente(1, 0, 0, 0, 0);
-         Cliente client2 = new Cliente(2, 0, 0, 0, 0);
-         Cliente client3 = new Cliente(3, 0, 0, 0, 0);
-         Cliente client4 = new Cliente(4, 0, 0, 0, 0);
-         
-         //Se agrega cliente
-         listaCliente.add(client0); 
-         listaCliente.add(client1);
-         listaCliente.add(client2);
-         listaCliente.add(client3);
-         listaCliente.add(client4);
-         
-         
-         
+   
          
          int time = 0;
          int numEvento= 0;
@@ -156,11 +122,7 @@ public class Simulacion {
             System.out.print("El Buffer tiene:\n " + buffer.getList().get(i).getInfo());
          }
         
-<<<<<<< HEAD
      //   AppCliente.nose();
-=======
-       
->>>>>>> 4eb7654f1682f2472b95d1afe2be086786cf0710
     }
     
     
