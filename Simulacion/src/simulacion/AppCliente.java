@@ -27,16 +27,16 @@ public class AppCliente {
                 }    
           */ 
                 System.out.println("COSA "+cosa.getIdCliente());
-               if((Simulacion.listaCliente.get(cosa.getIdCliente()).getMarcoActual())== cosa.getIdMarco()){
+               if((Simulacion.readyList.get(cosa.getIdCliente()).getMarcoActual())== cosa.getIdMarco()){
                 
                   //  System.out.println("PaqXmarco: "+ listaCliente.get(AppServer.responseList.get(i).getIdCliente()).getPaqXmarco());
-                    Simulacion.listaCliente.get(cosa.getIdCliente()).AumentaPaqXmarco();
+                    Simulacion.readyList.get(cosa.getIdCliente()).AumentaPaqXmarco();
                   //  System.out.println("AumentaPaqXmarco: "+ listaCliente.get(AppServer.responseList.get(i).getIdCliente()).getPaqXmarco());
                     
                 
                 
-                if((Simulacion.listaCliente.get(cosa.getIdCliente()).getPaqXmarco())==(Simulacion.listaCliente.get(cosa.getIdCliente()).getTotalPaq())){
-                    Simulacion.listaCliente.get(cosa.getIdCliente()).AumentaMarcosCompletos();
+                if((Simulacion.readyList.get(cosa.getIdCliente()).getPaqXmarco())==(Simulacion.readyList.get(cosa.getIdCliente()).getTotalPaq())){
+                    Simulacion.readyList.get(cosa.getIdCliente()).AumentaMarcosCompletos();
                    // System.out.println("TotalPaquetesCompletos: "+ listaCliente.get(AppServer.responseList.get(i).getIdCliente()).getTotalPaq());
                 }
            
@@ -51,13 +51,13 @@ public class AppCliente {
            
            }         
            */
-            if((Simulacion.listaCliente.get(cosa.getIdCliente()).getMarcoActual()) < cosa.getIdMarco()){
+            if((Simulacion.readyList.get(cosa.getIdCliente()).getMarcoActual()) < cosa.getIdMarco()){
                  //System.out.println("Menor Marco Actual: "+ (listaCliente.get(AppServer.responseList.get(i).getIdCliente()).getMarcoActual()));
                  //System.out.println("Menor IdMArco: "+ AppServer.responseList.get(i).getIdMarco());
                 
-                 Simulacion.listaCliente.get(cosa.getIdCliente()).setMarcoActual(cosa.getIdMarco());
-                 Simulacion.listaCliente.get(cosa.getIdCliente()).setPaqXmarco(1);
-                 Simulacion.listaCliente.get(cosa.getIdCliente()).setTotalPaq(cosa.getCantPaq());
+                 Simulacion.readyList.get(cosa.getIdCliente()).setMarcoActual(cosa.getIdMarco());
+                 Simulacion.readyList.get(cosa.getIdCliente()).setPaqXmarco(1);
+                 Simulacion.readyList.get(cosa.getIdCliente()).setTotalPaq(cosa.getCantPaq());
                
                  
            }
@@ -66,11 +66,11 @@ public class AppCliente {
         
 
          //for(int k=0; k < Simulacion.listaCliente.size(); k++){
-                 System.out.println("ID CLIENTE "+ Simulacion.listaCliente.get(cosa.getIdCliente()).getIdClient());
-                 System.out.println("PAQXMARCO "+ Simulacion.listaCliente.get(cosa.getIdCliente()).getPaqXmarco());
-                 System.out.println("TOTAL PAQUETES "+ Simulacion.listaCliente.get(cosa.getIdCliente()).getTotalPaq());
-                 System.out.println("MARCO ACTUAL "+ Simulacion.listaCliente.get(cosa.getIdCliente()).getMarcoActual());
-                 System.out.println("MARCOS COMPLETOS "+ Simulacion.listaCliente.get(cosa.getIdCliente()).getMarcosCompletos());
+                 System.out.println("ID CLIENTE "+ Simulacion.readyList.get(cosa.getIdCliente()).getIdClient());
+                 System.out.println("PAQXMARCO "+ Simulacion.readyList.get(cosa.getIdCliente()).getPaqXmarco());
+                 System.out.println("TOTAL PAQUETES "+ Simulacion.readyList.get(cosa.getIdCliente()).getTotalPaq());
+                 System.out.println("MARCO ACTUAL "+ Simulacion.readyList.get(cosa.getIdCliente()).getMarcoActual());
+                 System.out.println("MARCOS COMPLETOS "+ Simulacion.readyList.get(cosa.getIdCliente()).getMarcosCompletos());
      
         
     }
