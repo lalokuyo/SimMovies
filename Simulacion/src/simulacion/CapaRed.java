@@ -49,8 +49,7 @@ public class CapaRed{
              //Else si el evento es respuesta para cliente    
             }
             if(buffer.getList().get(index).idMarco != 0){
-                System.out.println("ENTRREEE");
-               
+                          
                // index++;
                 AppCliente.VideoReader(buffer.getList().get(index));
                  buffer.getList().remove(index); 
