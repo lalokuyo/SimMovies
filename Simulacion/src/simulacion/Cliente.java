@@ -10,30 +10,41 @@ package simulacion;
  *
  * @author ivonne
  */
+
+import java.util.*;
+
 public class Cliente {
     
     //Variables
     Cliente nextCliente;
     
-    int idClient; //Identificador de cliente
-    int paqXmarco; //nùmero de paquetes que he recibido por marco
-    int totalPaq; //Total paquetes que espero recibir en el marco
-    int marcosCompletos; //La cantidad de marcos completos que he recibido
-    int marcoActual; //Número de marco del que estoy recibiendo paquetes
+     List<Evento> responseList;
+    int idClient;           //Identificador de cliente
+    int paqXmarco;          //nùmero de paquetes que he recibido por marco
+    int totalPaq;           //Total paquetes que espero recibir en el marco
+    int marcosCompletos;    //La cantidad de marcos completos que he recibido
+    int marcoActual;        //Número de marco del que estoy recibiendo paquetes
     
     //Construye nodo
     public Cliente(int idClient, int paqXmarco, int totalPaq, int marcosCompletos, int marcoActual){
+        this.responseList = new ArrayList<Evento>();
         this.idClient = idClient;
         this.paqXmarco = paqXmarco;
         this.totalPaq = totalPaq;
         this.marcosCompletos = marcosCompletos;
         this.marcoActual = marcoActual;
     }
+        
+        //Lista para el cliente
+     public List<Evento> getList() {
+             //buffer.add("a");
+            return this.responseList;
+     }
     
     //Obtener Información de nodo 
     public String getInfo(){
     
-        return "idClient:" + idClient + "paquetes por Marco:" + paqXmarco + " Total paquetes:" + totalPaq + "Marcos Completos:" + marcosCompletos + "Marco Actual:" + marcoActual + "\n";
+        return "idClient:" + idClient + " PqXMarco: " + paqXmarco + " TPq: " + totalPaq + " MarComp: " + marcosCompletos + " MarActual: " + marcoActual + "\n";
     }
     
     //Obtiene el num de cliente

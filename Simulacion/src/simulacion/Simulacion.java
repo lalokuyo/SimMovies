@@ -19,31 +19,57 @@ public class Simulacion {
      * @param args the command line arguments
      */
     
-     public static Buffer buffer = new Buffer(7);
+     public static Buffer buffer = new Buffer(8);
+    // public static Buffer clientList = new Buffer(9);
+     public static List<Cliente> readyList = new ArrayList<Cliente>();
      
     public static void main(String[] args) {
-        // TODO code application logic here
+        
         
         //****************** VARIABLES ***************************************
-        //Lista de objetos 
+        //Lista de eventos de llegada 
          List<Evento> listaEvento = new ArrayList<Evento>();
-         // buffer = new ArrayList<Object>();
-       
-               
+        
+         
+         
+         //Clientes predefinidos
+         Cliente cliente1 = new Cliente(0, 0, 0, 0, 0);
+         Cliente cliente2 = new Cliente(1, 0, 0, 0, 0);
+         Cliente cliente3 = new Cliente(2, 0, 0, 0, 0);
+         
          //Peticiones de clientes nuevos
-         Evento cliente1 = new Evento(1, 0, 1, 10, 0);
-         Evento cliente2 = new Evento(2, 0, 2, 10, 0);
-         Evento cliente3 = new Evento(3, 1, 3, 10, 0);
-         Evento cliente4 = new Evento(4, 0, 9, 10, 0);
-         Evento cliente5 = new Evento(4, 0, 10, 10, 0);
+         //Evento pet1 = new Evento(0, 0, 1, 10, 0);
+         Evento pet2 = new Evento(1, 0, 2, 10, 0);
+         Evento pet3 = new Evento(1, 0, 3, 10, 0);   
+         //Evento pet4 = new Evento(2, 0, 9, 10, 0);
+         
+       
+         //Se agregan clientes
+         readyList.add(cliente1);
+         readyList.add(cliente2);
+         readyList.add(cliente3);
+         
+          
+        /*  readyList.get(0).getList().add(pet1);
+          readyList.get(1).getList().add(pet2);
+          readyList.get(2).getList().add(pet4);
+
+         //Impresión de los elementos en la lista
+          for(int i=0; i < readyList.size(); i++){
+             
+              System.out.print("L: " + readyList.get(i).getInfo());
+          }
+         */
+         
          
        
          
-         //Se agrega cliente
-         listaEvento.add(cliente1);
-         listaEvento.add(cliente2);
-         listaEvento.add(cliente3);
-         //listaEvento.add(cliente4);
+         
+         //Se agregan peticiones cliente
+         //listaEvento.add(pet1);
+         listaEvento.add(pet2);
+         listaEvento.add(pet3);
+         //listaEvento.add(pet4);
         // listaEvento.add(cliente5);
          
          
@@ -94,12 +120,24 @@ public class Simulacion {
          
          CapaRed.readFromBuffer(buffer);
          
+        // CapaRed.addToBuffer();
+         System.out.println("\nLO QUE TIENEN LAS LISTAS");
+         //Impresión de los elementos en la lista
+         for(int i=0; i < readyList.size(); i++){
+            System.out.println("Cliente" + readyList.get(i).idClient);
+            for(int j=0; j < readyList.size(); j++){
+                System.out.println(readyList.get(i).getList().get(i).idCliente);
+            
+            }
+         }
+         
+         
          //Impresión de los elementos en la lista
          for(int i=0; i < buffer.getList().size(); i++){
             System.out.print("El Buffer tiene:\n " + buffer.getList().get(i).getInfo());
          }
         
-        AppCliente.nose();
+     //   AppCliente.nose();
     }
     
     

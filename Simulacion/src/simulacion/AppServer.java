@@ -12,17 +12,10 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.*;
-import java.io.*;
+
 
 
 public class AppServer {
-    
-        //Lista de eventos en espera de agregarlos al buffer
-        public static List<Evento> responseList = new ArrayList<Evento>();
-        
-        // public static String name = "movies.txt";
-         //public static String archOut = "";
       
      /*
       * 
@@ -31,18 +24,21 @@ public class AppServer {
       * 
       */
       public static void fileReader(String fileName, int idCliente){
-      
-        /* try {
+          
+          //Lista de eventos en espera de agregarlos al buffer POR cliente
+         //   Cliente cliente = new Cliente(idCliente, 0, 0, 0, 0);
+          System.out.println("FileReader.id: " + idCliente);
+         try {
             BufferedReader archIn = new BufferedReader(new FileReader(fileName)); //archivo 1
             //PrintWriter archOut = new PrintWriter(new FileWriter(out));//archivo salida
             String linea = ("");
             
             //Variables de Calculos de paquetes
             double paquetes = 0.0;
-            int mtu = 20;       //Tamaño del paquete
-            int marco = 0;      //Marco en lectura
-            int denom = 0;      //Cantidad de paquetes a enviar
-            int cantidadPaquetes = 0; //Cantidad de paquetes que hay por marco
+            int mtu = 20;               //Tamaño del paquete
+            int marco = 0;              //Marco en lectura
+            int denom = 0;              //Cantidad de paquetes a enviar
+            int cantidadPaquetes = 0;   //Cantidad de paquetes que hay por marco
             boolean resta = false;
             
             //Parametros del evento a crear
@@ -58,7 +54,7 @@ public class AppServer {
                denom = (int)paquetes;  //26
 
               // System.out.println("L: " + paquetes);
-             
+            
          
                //Verificar si hay residuo para cubrir todos los paquetes
                cantidadPaquetes = denom;
@@ -74,14 +70,15 @@ public class AppServer {
                //For para agregar cada paquete a una lista de atención
                for(int i=0; i<denom; i++){
                    Evento paquete = new Evento(idCliente, idMarco, ta, size, cantidadPaquetes);
-                   responseList.add(paquete);
+                  // System.out.print("Paquete a agregar: " + paquete.getInfo() + " en "+ Simulacion.readyList.get(idCliente).idClient);
+                   Simulacion.readyList.get(idCliente).getList().add(paquete);
                    ta++;
          
                }
                //En caso de haber residuo agregar ese también a la lista
                if(resta){
                    Evento paquete = new Evento(idCliente, idMarco, ta, residuo,cantidadPaquetes);
-                   responseList.add(paquete);
+                   Simulacion.readyList.get(idCliente).getList().add(paquete);
                    resta = false;
                    residuo = 0;
                }
@@ -92,22 +89,48 @@ public class AppServer {
            //Impresión de los elementos en la lista
           /*   for(int i=0; i < responseList.size(); i++){
                 System.out.print("L: " + responseList.get(i).getInfo());
-            }
+            }*/
 
             archIn.close();
+            
+            System.out.println("Lista ready: " + Simulacion.readyList.get(idCliente).idClient);  
+            
+            //response(Simulacion.readyList.get(idCliente));
+            //CapaRed.addToBuffer();
+             
          }
             catch (FileNotFoundException fne){
                System.out.println("El archivo no existe");
             }
             catch (IOException ioe){
                System.out.println("Error en entrada");
-            }*/
-         System.out.println("Cheque cliente");
+            }
+         //System.out.println("Cheque cliente "  + idCliente);
       }
       
-      public static void response(){
+      
+      /*
+       * Aqui se agrega un elemento de las listas 
+       * de CADA cliente al buffer
+       * 
+       */
+      public static void response(Cliente cliente){
           
-          // while()
+         
+              System.out.println("\n.Response");
+              
+              /*
+               * Se agregan los clientes ya procesados a una lista
+               * para que esta sea atendida por RR.
+              */
+             // Simulacion.readyList.add(cliente);
+              System.out.println("Cliente added: " + cliente.idClient);
+              CapaRed.addToBuffer();
+              System.out.println("...");
+      
+          //}
+          
+          
       }
   
 
