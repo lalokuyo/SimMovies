@@ -96,7 +96,7 @@ public class Simulacion {
                 * Si hay cosas en el buffer llamar por Round Robin
                 * 
                 */
-                // CapaRed.readFromBuffer(buffer);
+                //CapaRed.readFromBuffer(buffer);
                   
                   
              System.out.println(""); 
@@ -124,7 +124,7 @@ public class Simulacion {
             System.out.print("El Buffer tiene:\n " + buffer.getList().get(i).getInfo());
          }
         
-     //   AppCliente.nose();
+  
     }
     
     
