@@ -51,6 +51,7 @@ public class CapaRed{
                
                 //Aqui va lo tuyo ivonne
                 //AppCliente.funcionChida
+                //AppCliente.VideoReader(buffer.getList().remove(index));
 
             }
         
@@ -75,37 +76,41 @@ public class CapaRed{
             //Para cada cliente 
             for(int i=0; i <Simulacion.readyList.size(); i++){
                 auxCliente = Simulacion.readyList.get(i);
-                System.out.println("");
+                System.out.println("\nAtendiendo cliente: " + auxCliente.idClient);
                 
                 
-                //Atiendelo por 0.5 segundos 
-                while(time <= quantum){
-                    
-                    //Se agregan al buffer los paquetes si es que tiene espacio
-                    //de lo contrario se pierden...
-                    if(Simulacion.buffer.freeSpace()){
-                        System.out.print(" time " + time + " idC: " + auxCliente.getList().get(paquete).getInfo());
+                    //Atiendelo por 0.5 segundos mientras su lista no este vacia
+                    while(time <= quantum && !auxCliente.getList().isEmpty()){
                         
-                        Buffer.buffer.add(auxCliente.getList().remove(paquete));
-                        //Se vuelve a llamar a lectura para ir vaciando el buffer **
-                        readFromBuffer(Simulacion.buffer);  
-            
-                    }else{
-                        System.out.print("\nBasura - size " + Buffer.buffer.size());
-                        auxCliente.getList().remove(paquete);
+                       // if(!auxCliente.getList().isEmpty()){
+
+                            //Se agregan al buffer los paquetes si es que tiene espacio
+                            //de lo contrario se pierden...
+                            if(Simulacion.buffer.freeSpace()){
+                                System.out.print(" time " + time + " idC: " + auxCliente.getList().get(paquete).getInfo());
+
+                                Buffer.buffer.add(auxCliente.getList().remove(paquete));
+                                //Se vuelve a llamar a lectura para ir vaciando el buffer **
+                                readFromBuffer(Simulacion.buffer);  
+
+                            }else{
+                                System.out.print("\nBasura - size " + Buffer.buffer.size());
+                                auxCliente.getList().remove(paquete);
+                            }
+                       // }
+
+                        //paquete++;
+                        time += 0.1;
                     }
-                       
-                    //paquete++;
-                    time += 0.1;
-                }
-                time = 0.0;
-                
+                    time = 0.0;
                 
                 //Verificar si la lista de paquetes ya se acabo 
                 //para sacar al cliente de la lista
                 if(auxCliente.getList().isEmpty()){
-                    System.out.print("\nBorrado"); 
+                    System.out.print("\nBorrado " + auxCliente.idClient); 
                     Simulacion.readyList.remove(auxCliente);
+                    break; //Se tiene que reiniciar el for para que no salte a nadie
+                   
                 }
                 
             }

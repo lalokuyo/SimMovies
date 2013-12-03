@@ -20,7 +20,7 @@ public class Simulacion {
      */
     
 
-     public static Buffer buffer = new Buffer(8);
+     public static Buffer buffer = new Buffer(9);
     // public static Buffer clientList = new Buffer(9);
      public static List<Cliente> readyList = new ArrayList<Cliente>();
 
@@ -39,7 +39,7 @@ public class Simulacion {
          Cliente cliente2 = new Cliente(1, 0, 0, 0, 0);
          Cliente cliente3 = new Cliente(2, 0, 0, 0, 0);
          
-         //Peticiones de clientes nuevos
+         //Peticiones clientes nuevos (id, marco, time, size, maxPq.)
          Evento pet1 = new Evento(0, 0, 1, 10, 0);
          Evento pet2 = new Evento(1, 0, 2, 10, 0);
          Evento pet3 = new Evento(2, 0, 3, 10, 0);   
@@ -79,7 +79,9 @@ public class Simulacion {
                      //Si el buffer tiene espacio se agrega un evento
                      if(buffer.freeSpace()){
                          // buffer.getList().add(listaEvento.get(numEvento).getInfo());
+                         
                         buffer.getList().add(listaEvento.get(numEvento));
+                      //  CapaRed.readFromBuffer(buffer);   //Se lee del buffer 
                       }
                       
                       //CapaRed.addToBuffer(listaEvento.get(numEvento));  //Escribe desde otro lado

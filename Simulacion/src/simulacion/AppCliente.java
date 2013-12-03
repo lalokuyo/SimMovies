@@ -14,7 +14,7 @@ public class AppCliente {
     
     //public static List<Cliente> listaCliente = new ArrayList<Cliente>(); 
     
-    public static void VideoReader (Evento cosa){
+    public static void VideoReader(Evento cosa){
                      
                  
            /*
