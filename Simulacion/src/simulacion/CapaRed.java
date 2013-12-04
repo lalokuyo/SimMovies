@@ -12,7 +12,7 @@ import java.math.BigDecimal;
  */
 public class CapaRed{
  
-    
+    public static int inicioLista = 0; //Contador de posición de lectura en la lista "ready.list"
     
     //Esta función esta constantemente leyendo
     //en el buffer y las procesa el servidor o el cliente
@@ -66,7 +66,8 @@ public class CapaRed{
     public static void addToBuffer(){
         
         //Mientras haya Clientes con listas 
-        int inicioLista = 0;
+        
+        System.out.println("VUELVO A ENTRAR");
        // while(!Simulacion.readyList.isEmpty()){
         while(inicioLista<Simulacion.readyList.size()){
            
