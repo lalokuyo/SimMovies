@@ -5,6 +5,7 @@
 package simulacion;
 
 
+import java.math.BigDecimal;
 import java.util.*;
 
 /**
@@ -58,8 +59,11 @@ public class Simulacion {
          //listaEvento.add(pet4);
         // listaEvento.add(cliente5);
    
-         
-         int time = 0;
+         BigDecimal time = new BigDecimal("0.0000");
+         BigDecimal fin = new BigDecimal("100.000");
+         BigDecimal fijo = new BigDecimal("0.5");
+         BigDecimal aux;
+         //int time = 0;
          int numEvento= 0;
          int size = listaEvento.size()-1;
          String name = "movies.txt";
@@ -67,14 +71,16 @@ public class Simulacion {
          //AppServer.fileReader(name);
          
          //Ciclo de los clientes y del número de iteraciones
-         while (time <= 100){
+         while ((time.compareTo(fin)) == -1){
              System.out.print(time + " ");
-                    
+                    Double tiempoTemp = (double)listaEvento.get(numEvento).getTa();
+                    aux = new BigDecimal(tiempoTemp); //Este es el Ta del evento convertido a BD
                   //Si el tiempo de llegada es igual al tiempo del contador
-                  if(time == listaEvento.get(numEvento).getTa()){  
+                 // if(time.compareTo(aux) == listaEvento.get(numEvento).getTa()){  
+                    if(time.compareTo(aux) == 0){  
                       System.out.println(" num: "+ listaEvento.get(numEvento).getTa());
                       
-                     System.out.print("Entro a buffer: "+buffer.freeSpace());
+                      System.out.print("Entro a buffer: "+buffer.freeSpace());
                      
                      //Si el buffer tiene espacio se agrega un evento
                      if(buffer.freeSpace()){
@@ -101,8 +107,8 @@ public class Simulacion {
                   
              System.out.println(""); 
           
-             
-             time++;
+             time = time.add(fijo);
+             //time++;
          }
          
             CapaRed.readFromBuffer(buffer);

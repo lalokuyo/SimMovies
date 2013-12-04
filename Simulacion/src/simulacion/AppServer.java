@@ -93,7 +93,7 @@ public class AppServer {
             System.out.println("Lista ready: " + Simulacion.readyList.get(idCliente).idClient);  
             
             //response(Simulacion.readyList.get(idCliente));
-            CapaRed.addToBuffer();
+        //    CapaRed.addToBuffer();
              
          }
             catch (FileNotFoundException fne){
