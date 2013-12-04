@@ -13,6 +13,7 @@ import java.math.BigDecimal;
 public class CapaRed{
  
     public static int inicioLista = 0; //Contador de posición de lectura en la lista "ready.list"
+     public static int finLista = 0;
     
     //Esta función esta constantemente leyendo
     //en el buffer y las procesa el servidor o el cliente
@@ -42,6 +43,7 @@ public class CapaRed{
                
                 System.out.println("\nCliente: " + buffer.getList().get(index).idCliente + " index: " + index);
                 AppServer.fileReader("Terse_Jurassic.dat", buffer.getList().remove(index).idCliente); //Quitalo de la lista
+                finLista++;
                 addToBuffer();
               
                 
@@ -65,11 +67,12 @@ public class CapaRed{
     
     public static void addToBuffer(){
         
-        //Mientras haya Clientes con listas 
+       //Se asigna el valor del final de la lista para no atender a clientes vacios 
         
-        System.out.println("VUELVO A ENTRAR");
-       // while(!Simulacion.readyList.isEmpty()){
-        while(inicioLista<Simulacion.readyList.size()){
+        System.out.println("FinLista: " + finLista);
+        //Mientras haya Clientes con listas 
+        while(inicioLista < finLista){
+        //while(inicioLista < Simulacion.readyList.size()){
            
             Cliente auxCliente;     //Cliente Auxiliar
             //double quantum = 1.0;
@@ -85,7 +88,7 @@ public class CapaRed{
              //
      
             //Para cada cliente 
-            for(int i=inicioLista; i <Simulacion.readyList.size(); i++){
+            for(int i=inicioLista; i < finLista; i++){
                 auxCliente = Simulacion.readyList.get(i);
                 System.out.println("\nAtendiendo cliente: " + auxCliente.idClient);
                 

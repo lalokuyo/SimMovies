@@ -26,7 +26,7 @@ public class AppCliente {
                     }      
                 }    
           */ 
-                System.out.println("COSA "+cosa.getIdCliente());
+             //   System.out.println("COSA "+cosa.getIdCliente());
                if((Simulacion.readyList.get(cosa.getIdCliente()).getMarcoActual())== cosa.getIdMarco()){
                 
                   //  System.out.println("PaqXmarco: "+ listaCliente.get(AppServer.responseList.get(i).getIdCliente()).getPaqXmarco());
@@ -66,11 +66,11 @@ public class AppCliente {
         
 
          //for(int k=0; k < Simulacion.listaCliente.size(); k++){
-                 System.out.println("ID CLIENTE "+ Simulacion.readyList.get(cosa.getIdCliente()).getIdClient());
+           /*      System.out.println("ID CLIENTE "+ Simulacion.readyList.get(cosa.getIdCliente()).getIdClient());
                  System.out.println("PAQXMARCO "+ Simulacion.readyList.get(cosa.getIdCliente()).getPaqXmarco());
                  System.out.println("TOTAL PAQUETES "+ Simulacion.readyList.get(cosa.getIdCliente()).getTotalPaq());
                  System.out.println("MARCO ACTUAL "+ Simulacion.readyList.get(cosa.getIdCliente()).getMarcoActual());
-                 System.out.println("MARCOS COMPLETOS "+ Simulacion.readyList.get(cosa.getIdCliente()).getMarcosCompletos());
+                 System.out.println("MARCOS COMPLETOS "+ Simulacion.readyList.get(cosa.getIdCliente()).getMarcosCompletos());*/
      
         
     }

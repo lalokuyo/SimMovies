@@ -41,8 +41,8 @@ public class Simulacion {
          
          //Peticiones clientes nuevos (id, marco, time, size, maxPq.)
          Evento pet1 = new Evento(0, 0, 1, 10, 0);
-         Evento pet2 = new Evento(1, 0, 2, 10, 0);
-         Evento pet3 = new Evento(2, 0, 3, 10, 0);   
+         Evento pet2 = new Evento(1, 0, 25, 10, 0);
+         Evento pet3 = new Evento(2, 0, 35, 10, 0);   
          //Evento pet4 = new Evento(2, 0, 9, 10, 0);
          
        
@@ -81,7 +81,7 @@ public class Simulacion {
                          // buffer.getList().add(listaEvento.get(numEvento).getInfo());
                          
                         buffer.getList().add(listaEvento.get(numEvento));
-                      //  CapaRed.readFromBuffer(buffer);   //Se lee del buffer 
+                        CapaRed.readFromBuffer(buffer);   //Se lee del buffer 
                       }
                       
                       //CapaRed.addToBuffer(listaEvento.get(numEvento));  //Escribe desde otro lado
@@ -105,7 +105,7 @@ public class Simulacion {
              time++;
          }
          
-         CapaRed.readFromBuffer(buffer);
+            CapaRed.readFromBuffer(buffer);
          
         // CapaRed.addToBuffer();
          System.out.println("\nLO QUE TIENEN LAS LISTAS");
