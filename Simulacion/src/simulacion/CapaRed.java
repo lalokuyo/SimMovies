@@ -47,11 +47,13 @@ public class CapaRed{
                 
              //Else si el evento es respuesta para cliente       
             }else if(buffer.getList().get(index).idMarco != 0){
-                buffer.getList().remove(index); //Quitalo de la lista
+                //buffer.getList().remove(index); //Quitalo de la lista
                
                 //Aqui va lo tuyo ivonne
                 //AppCliente.funcionChida
-                //AppCliente.VideoReader(buffer.getList().remove(index));
+                
+                  AppCliente.VideoReader(buffer.getList().get(index));
+                  buffer.getList().remove(index); 
 
             }
         
@@ -64,23 +66,31 @@ public class CapaRed{
     public static void addToBuffer(){
         
         //Mientras haya Clientes con listas 
-        while(!Simulacion.readyList.isEmpty()){
+        int inicioLista = 0;
+       // while(!Simulacion.readyList.isEmpty()){
+        while(inicioLista<Simulacion.readyList.size()){
            
             Cliente auxCliente;     //Cliente Auxiliar
-            double quantum = 1.0;
+            //double quantum = 1.0;
             //BigDecimal quantum = new BigDecimal("0.5");
-            //BigDecimal time = new BigDecimal("0.0000");
-            double time = 0.0;
+            //BigDecimal time = new BigDecimal("0.0000
+            
+            BigDecimal quantum = new BigDecimal("0.0005");
+            BigDecimal time = new BigDecimal("0.0000");
+            BigDecimal fijo = new BigDecimal("0.0001");
+            BigDecimal zero = new BigDecimal("0.0000");
+            //double time = 0.0;
             int paquete = 0;
+             //
      
             //Para cada cliente 
-            for(int i=0; i <Simulacion.readyList.size(); i++){
+            for(int i=inicioLista; i <Simulacion.readyList.size(); i++){
                 auxCliente = Simulacion.readyList.get(i);
                 System.out.println("\nAtendiendo cliente: " + auxCliente.idClient);
                 
                 
                     //Atiendelo por 0.5 segundos mientras su lista no este vacia
-                    while(time <= quantum && !auxCliente.getList().isEmpty()){
+                    while(((time.compareTo(quantum))==-1) && !auxCliente.getList().isEmpty()){
                         
                        // if(!auxCliente.getList().isEmpty()){
 
@@ -100,15 +110,19 @@ public class CapaRed{
                        // }
 
                         //paquete++;
-                        time += 0.1;
+                       // time += 0.1;
+                            time = time.add(fijo);
+
                     }
-                    time = 0.0;
+                   // time = 0.0;
+                    time = zero;
                 
                 //Verificar si la lista de paquetes ya se acabo 
                 //para sacar al cliente de la lista
                 if(auxCliente.getList().isEmpty()){
                     System.out.print("\nBorrado " + auxCliente.idClient); 
-                    Simulacion.readyList.remove(auxCliente);
+                    //Simulacion.readyList.remove(auxCliente);
+                    inicioLista++;
                     break; //Se tiene que reiniciar el for para que no salte a nadie
                    
                 }

@@ -112,7 +112,7 @@ public class Simulacion {
          //Impresión de los elementos en la lista
          for(int i=0; i < readyList.size(); i++){
             System.out.println("Cliente" + readyList.get(i).idClient);
-            for(int j=0; j < readyList.size(); j++){
+            for(int j=0; j < readyList.get(i).getList().size(); j++){
                 System.out.println(readyList.get(i).getList().get(i).idCliente);
             
             }
