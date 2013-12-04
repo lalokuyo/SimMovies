@@ -23,7 +23,9 @@ public class CapaRed{
         //System.out.print(buffer.getList().);
         
         //Mientras existan elementos Cliente en el buffer se verifica 
-       while(!buffer.getList().isEmpty()){     
+       while(!buffer.getList().isEmpty()){
+                        
+
            // evento = buffer.getList().get(index).idMarco;
            // System.out.print("lista \n:" + buffer.getList().);
            // buffer.getList().remove(index); //Quitalo de la lista
@@ -45,11 +47,12 @@ public class CapaRed{
                 
              //Else si el evento es respuesta para cliente       
             }else if(buffer.getList().get(index).idMarco != 0){
-                //buffer.getList().remove(index); //Quitalo de la lista
+                buffer.getList().remove(index); //Quitalo de la lista
+               
                 //Aqui va lo tuyo ivonne
                 //AppCliente.funcionChida
-                //AppCliente.VideoReader(buffer.getList().get(index));
-                //buffer.getList().remove(index); 
+                //AppCliente.VideoReader(buffer.getList().remove(index));
+
             }
         
             //
