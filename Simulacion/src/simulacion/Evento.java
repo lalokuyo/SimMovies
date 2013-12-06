@@ -18,6 +18,7 @@ public class Evento{
     int ta;
     int size;
     int cantPaq; //cantidad de paquetes que tiene cada marco
+    int espera = 22;
     
     //Construye nodo
    public Evento(int idCliente, int idMarco, int ta, int size, int cantPaq){

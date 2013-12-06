@@ -22,7 +22,7 @@ public class Simulacion {
     public static int size;
     
     
-    public static Buffer buffer = new Buffer(1);
+    public static Buffer buffer = new Buffer(500);
     
     //Lista de clientes predefinidos
     public static List<Cliente> readyList = new ArrayList<Cliente>();
@@ -218,6 +218,7 @@ public class Simulacion {
                  //Si su probabilidad es mayor a la probabilida de error 
                   if(Simulacion.errorCheker()){
                      buffer.getList().add(listaEvento.remove(numEvento));
+                     //System.out.print("SE AGREGO!");
                      CapaRed.readFromBuffer(buffer);   //Se lee del buffer 
                   }
               }

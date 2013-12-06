@@ -24,21 +24,22 @@ public class CapaRed{
         //System.out.print(buffer.getList().);
         
         //Mientras existan elementos Cliente en el buffer se verifica 
-       while(!buffer.getList().isEmpty()){
+     //  while(!buffer.getList().isEmpty()){
+        for(int i=0; i < buffer.getList().size(); i++){
                         
-
-        
+            
+            System.out.println("idMarco: " + buffer.getList().get(index).idMarco);
            //Si el evento es un Cliente -> procesa su lista
-            if(buffer.getList().get(index).idMarco == 0){
+            if(buffer.getList().get(i).idMarco == 0){
                 
-                System.out.println("\nCliente: " + buffer.getList().get(index).idCliente + " index: " + index);
-                AppServer.fileReader("Terse_Jurassic.dat", buffer.getList().remove(index).idCliente); //Quitalo de la lista
+                System.out.println("\nCliente: " + buffer.getList().get(i).idCliente + " index: " + i);
+                AppServer.fileReader("Terse_Jurassic.dat", buffer.getList().remove(i).idCliente); //Quitalo de la lista
                 finLista++;
                 addToBuffer();
               
                 
              //Else si el evento es respuesta para cliente       
-            }else if(buffer.getList().get(index).idMarco != 0){
+            }else if(buffer.getList().get(index).idMarco != 0 && buffer.getList().get(index).espera == 0){
                 
                   AppCliente.VideoReader(buffer.getList().remove(index));
             }
@@ -86,15 +87,20 @@ public class CapaRed{
                                     System.out.print(" time " + time + " idC: " + auxCliente.getList().get(paquete).getInfo());
                                     Buffer.buffer.add(auxCliente.getList().remove(paquete));
                                     //Se vuelve a llamar a lectura para ir vaciando el buffer **
-                                    readFromBuffer(Simulacion.buffer);  
+                                    disminuyeTiempo();
+                                    readFromBuffer(Simulacion.buffer);
+                                    
+                                    
                                 }else{ //SI no pasa error tiralo
                                     System.out.print("\nBasura - size " + Buffer.buffer.size());
                                     auxCliente.getList().remove(paquete);
+                                    disminuyeTiempo();
                                 }
 
                             }else{ //Si no pasa por buffer lleno tiralo
                                 System.out.print("\nBasura - size " + Buffer.buffer.size());
                                 auxCliente.getList().remove(paquete);
+                                disminuyeTiempo();
                             }
                             
                             time = time.add(fijo);
@@ -124,5 +130,18 @@ public class CapaRed{
          
         }
     }
+    
+      public static void disminuyeTiempo(){
+     //Se disminuye el tiempo de espera por paquete hasta que sea 0
+        if (Simulacion.buffer.getList().get(0).espera > 0){
+            
+            for(int i=0; i < Simulacion.buffer.getList().size(); i++){
+                Simulacion.buffer.getList().get(i).espera--;
+            }
+            System.out.println("\nDISMINUYE!!!!*** " + Simulacion.buffer.getList().get(0).espera);
+
+        }        
+                                    
+     }
     
 }
