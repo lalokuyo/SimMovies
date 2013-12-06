@@ -132,16 +132,21 @@ public class CapaRed{
     }
     
       public static void disminuyeTiempo(){
-     //Se disminuye el tiempo de espera por paquete hasta que sea 0
-        if (Simulacion.buffer.getList().get(0).espera > 0){
+        if(!Simulacion.buffer.getList().isEmpty()){
+            System.out.println(" Menos");
             
-            for(int i=0; i < Simulacion.buffer.getList().size(); i++){
-                Simulacion.buffer.getList().get(i).espera--;
-            }
-            System.out.println("\nDISMINUYE!!!!*** " + Simulacion.buffer.getList().get(0).espera);
+            
+            //Se disminuye el tiempo de espera por paquete hasta que sea 0
+            if (Simulacion.buffer.getList().get(0).espera > 0){
 
-        }        
-                                    
+                for(int i=0; i < Simulacion.buffer.getList().size(); i++){
+                    Simulacion.buffer.getList().get(i).espera--;
+                }
+                System.out.println("\nDISMINUYE!!!!*** " + Simulacion.buffer.getList().get(0).espera);
+
+            }        
+          
+      }
      }
     
 }

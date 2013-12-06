@@ -91,7 +91,7 @@ public class Simulacion {
          //Se agregan clientes
          readyList.add(cliente1);
          readyList.add(cliente2);
-         readyList.add(cliente3);
+         /*readyList.add(cliente3);
          readyList.add(cliente4);
          readyList.add(cliente5);
          readyList.add(cliente6);
@@ -108,14 +108,14 @@ public class Simulacion {
          readyList.add(cliente17);
          readyList.add(cliente18);
          readyList.add(cliente19);
-         readyList.add(cliente20);
+         readyList.add(cliente20);*/
          
          
          
          //Se agregan peticiones cliente
          listaEvento.add(pet1);
          listaEvento.add(pet2);
-         listaEvento.add(pet3);
+         /*listaEvento.add(pet3);
          listaEvento.add(pet4);
          listaEvento.add(pet5);
          listaEvento.add(pet6);
@@ -133,7 +133,7 @@ public class Simulacion {
          listaEvento.add(pet18);
          listaEvento.add(pet19);
          listaEvento.add(pet20); 
-         
+         */
         
    
         
@@ -199,6 +199,8 @@ public class Simulacion {
     }
     
     public static void clientFinder(){
+        
+        CapaRed.disminuyeTiempo();
         if(!listaEvento.isEmpty()){
         
         double tiempoTemp = (double)listaEvento.get(numEvento).getTa();
@@ -228,7 +230,10 @@ public class Simulacion {
               }
            }
             
+        }else{
+            CapaRed.readFromBuffer(buffer);   //Se lee del buffer 
         }
+        
     }
     
     
