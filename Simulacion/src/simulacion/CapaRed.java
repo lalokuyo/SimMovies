@@ -27,20 +27,10 @@ public class CapaRed{
        while(!buffer.getList().isEmpty()){
                         
 
-           // evento = buffer.getList().get(index).idMarco;
-           // System.out.print("lista \n:" + buffer.getList().);
-           // buffer.getList().remove(index); //Quitalo de la lista
-            
+        
            //Si el evento es un Cliente -> procesa su lista
-           
-           
             if(buffer.getList().get(index).idMarco == 0){
-              /*  System.out.println("\nsize: " + buffer.getList().size());
-                //Impresión de los elementos en la lista
-                 for(int i=0; i < buffer.getList().size(); i++){
-                    System.out.print("L: " + buffer.getList().get(i).getInfo());
-                 }*/
-               
+                
                 System.out.println("\nCliente: " + buffer.getList().get(index).idCliente + " index: " + index);
                 AppServer.fileReader("Terse_Jurassic.dat", buffer.getList().remove(index).idCliente); //Quitalo de la lista
                 finLista++;
@@ -49,17 +39,9 @@ public class CapaRed{
                 
              //Else si el evento es respuesta para cliente       
             }else if(buffer.getList().get(index).idMarco != 0){
-                //buffer.getList().remove(index); //Quitalo de la lista
-               
-                //Aqui va lo tuyo ivonne
-                //AppCliente.funcionChida
                 
-                  AppCliente.VideoReader(buffer.getList().get(index));
-                  buffer.getList().remove(index); 
-
+                  AppCliente.VideoReader(buffer.getList().remove(index));
             }
-        
-            //
         }
         
     }
@@ -111,15 +93,14 @@ public class CapaRed{
                                 System.out.print("\nBasura - size " + Buffer.buffer.size());
                                 auxCliente.getList().remove(paquete);
                             }
-                       // }
-
-                        //paquete++;
-                       // time += 0.1;
+                            
                             time = time.add(fijo);
 
-                    }
-                   // time = 0.0;
+                    }//Fin While
                     time = zero;
+                    
+                    //Pregunta si llego alguien
+                  //  Simulacion.clientFinder();
                 
                 //Verificar si la lista de paquetes ya se acabo 
                 //para sacar al cliente de la lista

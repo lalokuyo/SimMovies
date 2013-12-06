@@ -70,14 +70,16 @@ public class AppServer {
                   // System.out.print("Paquete a agregar: " + paquete.getInfo() + " en "+ Simulacion.readyList.get(idCliente).idClient);
                    Simulacion.readyList.get(idCliente).getList().add(paquete);
                    ta++;
-         
+                   Simulacion.time = Simulacion.time.add(Simulacion.fijoAux);
                }
+               
                //En caso de haber residuo agregar ese también a la lista
                if(resta){
                    Evento paquete = new Evento(idCliente, idMarco, ta, residuo,cantidadPaquetes);
                    Simulacion.readyList.get(idCliente).getList().add(paquete);
                    resta = false;
                    residuo = 0;
+                   Simulacion.time = Simulacion.time.add(Simulacion.fijoAux);
                }
                
                idMarco++;
@@ -92,8 +94,6 @@ public class AppServer {
             
             System.out.println("Lista ready: " + Simulacion.readyList.get(idCliente).idClient);  
             
-            //response(Simulacion.readyList.get(idCliente));
-        //    CapaRed.addToBuffer();
              
          }
             catch (FileNotFoundException fne){
@@ -102,34 +102,6 @@ public class AppServer {
             catch (IOException ioe){
                System.out.println("Error en entrada");
             }
-         //System.out.println("Cheque cliente "  + idCliente);
       }
       
-      
-      /*
-       * Aqui se agrega un elemento de las listas 
-       * de CADA cliente al buffer
-       * 
-       */
-      public static void response(Cliente cliente){
-          
-         
-              System.out.println("\n.Response");
-              
-              /*
-               * Se agregan los clientes ya procesados a una lista
-               * para que esta sea atendida por RR.
-              */
-             // Simulacion.readyList.add(cliente);
-              System.out.println("Cliente added: " + cliente.idClient);
-              CapaRed.addToBuffer();
-              System.out.println("...");
-      
-          //}
-          
-          
-      }
-  
-
-    
 }
