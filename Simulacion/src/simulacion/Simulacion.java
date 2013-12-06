@@ -8,30 +8,32 @@ package simulacion;
 import java.math.BigDecimal;
 import java.util.*;
 
-/**
- *
- * @author Eduardo
- */
 public class Simulacion {
     
+    public static BigDecimal time = new BigDecimal("0.0000");
+    public static BigDecimal fin = new BigDecimal("100.000");
+    public static BigDecimal fijo = new BigDecimal("0.5");
+    public static BigDecimal fijoAux = new BigDecimal("0.0001");
+    public static BigDecimal aux;
     
-
-    /**
-     * @param args the command line arguments
-     */
+    public static int numEvento= 0;
+    public static int size;
     
-
-     public static Buffer buffer = new Buffer(9);
-    // public static Buffer clientList = new Buffer(9);
-     public static List<Cliente> readyList = new ArrayList<Cliente>();
-
+    
+    public static Buffer buffer = new Buffer(9);
+    
+    //Lista de clientes predefinidos
+    public static List<Cliente> readyList = new ArrayList<Cliente>();
+    //Lista de eventos de llegada 
+    public static List<Evento> listaEvento = new ArrayList<Evento>();
      
+    
+    
     public static void main(String[] args) {
         
         
         //****************** VARIABLES ***************************************
-        //Lista de eventos de llegada 
-         List<Evento> listaEvento = new ArrayList<Evento>();
+        
         
          
          
@@ -42,7 +44,7 @@ public class Simulacion {
          
          //Peticiones clientes nuevos (id, marco, time, size, maxPq.)
          Evento pet1 = new Evento(0, 0, 1, 10, 0);
-         Evento pet2 = new Evento(1, 0, 25, 10, 0);
+         Evento pet2 = new Evento(1, 0, 9, 10, 0);
          Evento pet3 = new Evento(2, 0, 35, 10, 0);   
          //Evento pet4 = new Evento(2, 0, 9, 10, 0);
          
@@ -59,61 +61,47 @@ public class Simulacion {
          //listaEvento.add(pet4);
         // listaEvento.add(cliente5);
    
-         BigDecimal time = new BigDecimal("0.0000");
-         BigDecimal fin = new BigDecimal("100.000");
-         BigDecimal fijo = new BigDecimal("0.5");
-         BigDecimal aux;
-         //int time = 0;
-         int numEvento= 0;
-         int size = listaEvento.size()-1;
-         String name = "movies.txt";
+        
          
-         //AppServer.fileReader(name);
+         size = listaEvento.size()-1;
+         
          
          //Ciclo de los clientes y del número de iteraciones
          while ((time.compareTo(fin)) == -1){
-             System.out.print(time + " ");
-                    Double tiempoTemp = (double)listaEvento.get(numEvento).getTa();
-                    aux = new BigDecimal(tiempoTemp); //Este es el Ta del evento convertido a BD
-                  //Si el tiempo de llegada es igual al tiempo del contador
-                 // if(time.compareTo(aux) == listaEvento.get(numEvento).getTa()){  
-                    if(time.compareTo(aux) == 0){  
-                      System.out.println(" num: "+ listaEvento.get(numEvento).getTa());
-                      
-                      System.out.print("Entro a buffer: "+buffer.freeSpace());
-                     
-                     //Si el buffer tiene espacio se agrega un evento
-                     if(buffer.freeSpace()){
-                         // buffer.getList().add(listaEvento.get(numEvento).getInfo());
-                         
-                        buffer.getList().add(listaEvento.get(numEvento));
-                        CapaRed.readFromBuffer(buffer);   //Se lee del buffer 
-                      }
-                      
-                      //CapaRed.addToBuffer(listaEvento.get(numEvento));  //Escribe desde otro lado
-                      //buffer.getList().add(name);
-                      if(numEvento < size){                        
-                        numEvento++;
-                      }
-                   }
-                  
-              //************ Sección de Procesamiento *********************
-               /*
-                * Si hay cosas en el buffer llamar por Round Robin
-                * 
-                */
-                // CapaRed.readFromBuffer(buffer);
-                  
+             
+             clientFinder();
+            /* System.out.print(time + " ");
+            double tiempoTemp = (double)listaEvento.get(numEvento).getTa();
+            aux = new BigDecimal(tiempoTemp); //Este es el Ta del evento convertido a BD
+
+            //Se truncan los decimales del tiempo
+            BigDecimal trunc = time.setScale(1,BigDecimal.ROUND_DOWN);
+            //Si el tiempo de llegada es igual al tiempo del contador
+            if(trunc.compareTo(aux) == 0){  
+              System.out.println(" num: "+ listaEvento.get(numEvento).getTa());
+
+              System.out.print("Entro a buffer: "+buffer.freeSpace());
+
+             //Si el buffer tiene espacio se agrega un evento
+             if(buffer.freeSpace()){
+                 // buffer.getList().add(listaEvento.get(numEvento).getInfo());
+
+                buffer.getList().add(listaEvento.get(numEvento));
+                CapaRed.readFromBuffer(buffer);   //Se lee del buffer 
+              }
+
+              //CapaRed.addToBuffer(listaEvento.get(numEvento));  //Escribe desde otro lado
+              //buffer.getList().add(name);
+              if(numEvento < size){                        
+                numEvento++;
+              }
+           } */
                   
              System.out.println(""); 
           
              time = time.add(fijo);
-             //time++;
-         }
+         }//Fin While
          
-            CapaRed.readFromBuffer(buffer);
-         
-        // CapaRed.addToBuffer();
          System.out.println("\nLO QUE TIENEN LAS LISTAS");
          //Impresión de los elementos en la lista
          for(int i=0; i < readyList.size(); i++){
@@ -124,16 +112,43 @@ public class Simulacion {
             }
          }
          
-         
          //Impresión de los elementos en la lista
          for(int i=0; i < buffer.getList().size(); i++){
             System.out.print("El Buffer tiene:\n " + buffer.getList().get(i).getInfo());
          }
+         
+         
         
-     //   AppCliente.nose();
     }
     
-    
+    public static void clientFinder(){
+        System.out.print(time + " ");
+        double tiempoTemp = (double)listaEvento.get(numEvento).getTa();
+            aux = new BigDecimal(tiempoTemp); //Este es el Ta del evento convertido a BD
+
+            //Se truncan los decimales del tiempo
+            BigDecimal trunc = time.setScale(1,BigDecimal.ROUND_DOWN);
+            //Si el tiempo de llegada es igual al tiempo del contador
+            if(trunc.compareTo(aux) == 0){  
+              System.out.println(" num: "+ listaEvento.get(numEvento).getTa());
+
+              System.out.print("Entro a buffer: "+buffer.freeSpace());
+
+             //Si el buffer tiene espacio se agrega un evento
+             if(buffer.freeSpace()){
+                 // buffer.getList().add(listaEvento.get(numEvento).getInfo());
+
+                buffer.getList().add(listaEvento.get(numEvento));
+                CapaRed.readFromBuffer(buffer);   //Se lee del buffer 
+              }
+
+              //CapaRed.addToBuffer(listaEvento.get(numEvento));  //Escribe desde otro lado
+              //buffer.getList().add(name);
+              if(numEvento < size){                        
+                numEvento++;
+              }
+           }
+    }
    
     
     
