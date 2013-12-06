@@ -43,7 +43,7 @@ public class AppServer {
             
             //Parametros del evento a crear
             int idMarco = 1;
-            int ta = 0;
+            double ta = 0;
             int size = 20; int residuo = 0;
             
             
@@ -73,7 +73,7 @@ public class AppServer {
                    Simulacion.readyList.get(idCliente).getList().add(paquete);
                    ta++;
                    
-                   Simulacion.timeAux = Simulacion.timeAux.add(Simulacion.fijoAux);
+                   //Simulacion.timeAux = Simulacion.timeAux.add(Simulacion.fijoAux);
                    Simulacion.time = Simulacion.time.add(Simulacion.fijoAux);
                }
                
@@ -84,7 +84,7 @@ public class AppServer {
                    resta = false;
                    residuo = 0;
                    
-                   Simulacion.timeAux = Simulacion.timeAux.add(Simulacion.fijoAux);
+                   //Simulacion.timeAux = Simulacion.timeAux.add(Simulacion.fijoAux);
                    Simulacion.time = Simulacion.time.add(Simulacion.fijoAux);
                }
                

@@ -15,12 +15,12 @@ public class Evento{
     
     int idCliente; 
     int idMarco;
-    int ta;
+    double ta;
     int size;
     int cantPaq; //cantidad de paquetes que tiene cada marco
     
     //Construye nodo
-   public Evento(int idCliente, int idMarco, int ta, int size, int cantPaq){
+   public Evento(int idCliente, int idMarco, double ta, int size, int cantPaq){
       this.idCliente = idCliente;
       this.idMarco = idMarco;
       this.ta = ta;
@@ -49,7 +49,7 @@ public class Evento{
    
    
     //Obtiene ta
-   public int getTa(){
+   public double getTa(){
       //System.out.print("id: " + id + "ta:" + ta);
       return ta;
    }

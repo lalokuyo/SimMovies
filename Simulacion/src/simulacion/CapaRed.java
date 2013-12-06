@@ -76,7 +76,7 @@ public class CapaRed{
                        
                        // Simulacion.timeAux = Simulacion.timeAux.add(Simulacion.fijoAux);
                         Simulacion.time = Simulacion.time.add(Simulacion.fijoAux);
-                        
+                                               
                             //Se agregan al buffer los paquetes si es que tiene espacio
                             //de lo contrario se pierden...
                             if(Simulacion.buffer.freeSpace()){

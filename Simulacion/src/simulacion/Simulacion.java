@@ -11,10 +11,11 @@ import java.util.*;
 public class Simulacion {
     
     public static BigDecimal time = new BigDecimal("0.0000");
-    public static BigDecimal timeAux = new BigDecimal("0.0000");
+    //public static BigDecimal timeAux = new BigDecimal("0.0000");
     public static BigDecimal fin = new BigDecimal("100.000");
     public static BigDecimal fijo = new BigDecimal("0.5");
     public static BigDecimal fijoAux = new BigDecimal("0.0001");
+     public static BigDecimal otrofijoAux = new BigDecimal("0.1");
     public static BigDecimal aux;
     
     public static int numEvento= 0;
@@ -44,21 +45,21 @@ public class Simulacion {
          Cliente cliente3 = new Cliente(2, 0, 0, 0, 0);
          
          //Peticiones clientes nuevos (id, marco, time, size, maxPq.)
-         Evento pet1 = new Evento(0, 0, 1, 10, 0);
-         Evento pet2 = new Evento(1, 0, 2, 10, 0);
-         Evento pet3 = new Evento(2, 0, 35, 10, 0);   
+         Evento pet1 = new Evento(0, 0, 0.5, 10, 0);
+         Evento pet2 = new Evento(1, 0, 1.0, 10, 0);
+         Evento pet3 = new Evento(2, 0, 1.5, 10, 0);   
          //Evento pet4 = new Evento(2, 0, 9, 10, 0);
          
        
          //Se agregan clientes
          readyList.add(cliente1);
          readyList.add(cliente2);
-        // readyList.add(cliente3);
+         readyList.add(cliente3);
          
          //Se agregan peticiones cliente
          listaEvento.add(pet1);
          listaEvento.add(pet2);
-         //listaEvento.add(pet3);
+         listaEvento.add(pet3);
          //listaEvento.add(pet4);
         // listaEvento.add(cliente5);
    
@@ -69,7 +70,8 @@ public class Simulacion {
          
          //Ciclo de los clientes y del número de iteraciones
          while ((time.compareTo(fin)) == -1){
-             System.out.print(time + " tAux: " + timeAux);
+            // System.out.print(time + " tAux: " + timeAux);
+             System.out.print(time);
              clientFinder();
             /* System.out.print(time + " ");
             double tiempoTemp = (double)listaEvento.get(numEvento).getTa();
@@ -100,8 +102,8 @@ public class Simulacion {
                   
              System.out.println(""); 
           
-             time = time.add(fijo);
-             timeAux = timeAux.add(fijo);
+             time = time.add(otrofijoAux);
+//             timeAux = timeAux.add(fijo);
          }//Fin While
          
          System.out.println("\nLO QUE TIENEN LAS LISTAS");
@@ -130,7 +132,7 @@ public class Simulacion {
             aux = new BigDecimal(tiempoTemp); //Este es el Ta del evento convertido a BD
 
             //Se truncan los decimales del tiempo
-            BigDecimal trunc = timeAux.setScale(1,BigDecimal.ROUND_DOWN);
+            BigDecimal trunc = time.setScale(1,BigDecimal.ROUND_DOWN);
             System.out.print(" Entra: " + trunc);
             //Si el tiempo de llegada es igual al tiempo del contador
             if(trunc.compareTo(aux) == 0){  
