@@ -45,9 +45,9 @@ public class Simulacion {
          Cliente cliente3 = new Cliente(2, 0, 0, 0, 0);
          
          //Peticiones clientes nuevos (id, marco, time, size, maxPq.)
-         Evento pet1 = new Evento(0, 0, 0.5, 10, 0);
-         Evento pet2 = new Evento(1, 0, 1.0, 10, 0);
-         Evento pet3 = new Evento(2, 0, 1.5, 10, 0);   
+         Evento pet1 = new Evento(0, 0, 2, 10, 0);
+         Evento pet2 = new Evento(1, 0, 4, 10, 0);
+         Evento pet3 = new Evento(2, 0, 6, 10, 0);   
          //Evento pet4 = new Evento(2, 0, 9, 10, 0);
          
        

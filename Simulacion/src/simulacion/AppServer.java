@@ -43,7 +43,7 @@ public class AppServer {
             
             //Parametros del evento a crear
             int idMarco = 1;
-            double ta = 0;
+            int ta = 0;
             int size = 20; int residuo = 0;
             
             
