@@ -57,9 +57,9 @@ public class CapaRed{
         while(inicioLista < finLista){
            Cliente auxCliente;     //Cliente Auxiliar
              
-            BigDecimal quantum = new BigDecimal("0.0005");
+            BigDecimal quantum = new BigDecimal("0.01");
             BigDecimal time = new BigDecimal("0.0000");
-            BigDecimal fijo = new BigDecimal("0.0001");
+            BigDecimal fijo = new BigDecimal("0.01");
             BigDecimal zero = new BigDecimal("0.0000");
             //double time = 0.0;
             int paquete = 0;

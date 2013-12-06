@@ -22,7 +22,7 @@ public class Simulacion {
     public static int size;
     
     
-    public static Buffer buffer = new Buffer(0);
+    public static Buffer buffer = new Buffer(1);
     
     //Lista de clientes predefinidos
     public static List<Cliente> readyList = new ArrayList<Cliente>();
