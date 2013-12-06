@@ -22,7 +22,7 @@ public class Simulacion {
     public static int size;
     
     
-    public static Buffer buffer = new Buffer(9);
+    public static Buffer buffer = new Buffer(0);
     
     //Lista de clientes predefinidos
     public static List<Cliente> readyList = new ArrayList<Cliente>();
@@ -31,7 +31,7 @@ public class Simulacion {
      
     //Variables de error
      public static double E = 0.01;
-     public static int k = 50;  //clientes
+     public static int k = 0;  //clientes
      public static double valorRand = 0.0; //
     
     public static void main(String[] args) {
@@ -93,7 +93,7 @@ public class Simulacion {
          readyList.add(cliente2);
          readyList.add(cliente3);
          readyList.add(cliente4);
-      /*   readyList.add(cliente5);
+         readyList.add(cliente5);
          readyList.add(cliente6);
          readyList.add(cliente7);
          readyList.add(cliente8);
@@ -108,7 +108,7 @@ public class Simulacion {
          readyList.add(cliente17);
          readyList.add(cliente18);
          readyList.add(cliente19);
-         readyList.add(cliente20);*/
+         readyList.add(cliente20);
          
          
          
@@ -117,7 +117,7 @@ public class Simulacion {
          listaEvento.add(pet2);
          listaEvento.add(pet3);
          listaEvento.add(pet4);
-      /*   listaEvento.add(pet5);
+         listaEvento.add(pet5);
          listaEvento.add(pet6);
          listaEvento.add(pet7);
          listaEvento.add(pet8);
@@ -132,7 +132,7 @@ public class Simulacion {
          listaEvento.add(pet17);
          listaEvento.add(pet18);
          listaEvento.add(pet19);
-         listaEvento.add(pet20); */
+         listaEvento.add(pet20); 
          
         
    

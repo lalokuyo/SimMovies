@@ -63,10 +63,10 @@ public class AppCliente {
                  Simulacion.readyList.get(evento.getIdCliente()).setPaqXmarco(1);
                  Simulacion.readyList.get(evento.getIdCliente()).setTotalPaq(evento.getCantPaq());
                
-                 // if((Simulacion.readyList.get(evento.getIdCliente()).getPaqXmarco())==(Simulacion.readyList.get(evento.getIdCliente()).getTotalPaq())){
-                  //  Simulacion.readyList.get(evento.getIdCliente()).AumentaMarcosCompletos();
+                  if((Simulacion.readyList.get(evento.getIdCliente()).getPaqXmarco())==(Simulacion.readyList.get(evento.getIdCliente()).getTotalPaq())){
+                    Simulacion.readyList.get(evento.getIdCliente()).AumentaMarcosCompletos();
                    // System.out.println("TotalPaquetesCompletos: "+ listaCliente.get(AppServer.responseList.get(i).getIdCliente()).getTotalPaq());
-                //}
+                }
            }
            
            
