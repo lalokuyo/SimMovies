@@ -80,13 +80,19 @@ public class CapaRed{
                             //Se agregan al buffer los paquetes si es que tiene espacio
                             //de lo contrario se pierden...
                             if(Simulacion.buffer.freeSpace()){
-                                System.out.print(" time " + time + " idC: " + auxCliente.getList().get(paquete).getInfo());
+                                
+                                //Si paso el error
+                                if(Simulacion.errorCheker()){
+                                    System.out.print(" time " + time + " idC: " + auxCliente.getList().get(paquete).getInfo());
+                                    Buffer.buffer.add(auxCliente.getList().remove(paquete));
+                                    //Se vuelve a llamar a lectura para ir vaciando el buffer **
+                                    readFromBuffer(Simulacion.buffer);  
+                                }else{ //SI no pasa error tiralo
+                                    System.out.print("\nBasura - size " + Buffer.buffer.size());
+                                    auxCliente.getList().remove(paquete);
+                                }
 
-                                Buffer.buffer.add(auxCliente.getList().remove(paquete));
-                                //Se vuelve a llamar a lectura para ir vaciando el buffer **
-                                readFromBuffer(Simulacion.buffer);  
-
-                            }else{
+                            }else{ //Si no pasa por buffer lleno tiralo
                                 System.out.print("\nBasura - size " + Buffer.buffer.size());
                                 auxCliente.getList().remove(paquete);
                             }
@@ -106,6 +112,7 @@ public class CapaRed{
                 //para sacar al cliente de la lista
                 if(auxCliente.getList().isEmpty()){
                     System.out.print("\nBorradoID " + auxCliente.idClient); 
+                   
                     //Simulacion.readyList.remove(auxCliente);
                     inicioLista++;
                     break; //Se tiene que reiniciar el for para que no salte a nadie

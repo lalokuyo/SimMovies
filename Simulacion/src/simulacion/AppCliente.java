@@ -14,7 +14,7 @@ public class AppCliente {
     
     //public static List<Cliente> listaCliente = new ArrayList<Cliente>(); 
     
-    public static void VideoReader(Evento cosa){
+    public static void VideoReader(Evento evento){
                      
                  
            /*
@@ -26,17 +26,17 @@ public class AppCliente {
                     }      
                 }    
           */ 
-             //   System.out.println("COSA "+cosa.getIdCliente());
-               if((Simulacion.readyList.get(cosa.getIdCliente()).getMarcoActual())== cosa.getIdMarco()){
+             //   System.out.println("COSA "+evento.getIdCliente());
+               if((Simulacion.readyList.get(evento.getIdCliente()).getMarcoActual())== evento.getIdMarco()){
                 
                   //  System.out.println("PaqXmarco: "+ listaCliente.get(AppServer.responseList.get(i).getIdCliente()).getPaqXmarco());
-                    Simulacion.readyList.get(cosa.getIdCliente()).AumentaPaqXmarco();
+                    Simulacion.readyList.get(evento.getIdCliente()).AumentaPaqXmarco();
                   //  System.out.println("AumentaPaqXmarco: "+ listaCliente.get(AppServer.responseList.get(i).getIdCliente()).getPaqXmarco());
                     
                 
                 
-                if((Simulacion.readyList.get(cosa.getIdCliente()).getPaqXmarco())==(Simulacion.readyList.get(cosa.getIdCliente()).getTotalPaq())){
-                    Simulacion.readyList.get(cosa.getIdCliente()).AumentaMarcosCompletos();
+                if((Simulacion.readyList.get(evento.getIdCliente()).getPaqXmarco())==(Simulacion.readyList.get(evento.getIdCliente()).getTotalPaq())){
+                    Simulacion.readyList.get(evento.getIdCliente()).AumentaMarcosCompletos();
                    // System.out.println("TotalPaquetesCompletos: "+ listaCliente.get(AppServer.responseList.get(i).getIdCliente()).getTotalPaq());
                 }
            
@@ -55,29 +55,29 @@ public class AppCliente {
            
            }         
            */
-            if((Simulacion.readyList.get(cosa.getIdCliente()).getMarcoActual()) < cosa.getIdMarco()){
+            if((Simulacion.readyList.get(evento.getIdCliente()).getMarcoActual()) < evento.getIdMarco()){
                  //System.out.println("Menor Marco Actual: "+ (listaCliente.get(AppServer.responseList.get(i).getIdCliente()).getMarcoActual()));
                  //System.out.println("Menor IdMArco: "+ AppServer.responseList.get(i).getIdMarco());
                 
-                 Simulacion.readyList.get(cosa.getIdCliente()).setMarcoActual(cosa.getIdMarco());
-                 Simulacion.readyList.get(cosa.getIdCliente()).setPaqXmarco(1);
-                 Simulacion.readyList.get(cosa.getIdCliente()).setTotalPaq(cosa.getCantPaq());
+                 Simulacion.readyList.get(evento.getIdCliente()).setMarcoActual(evento.getIdMarco());
+                 Simulacion.readyList.get(evento.getIdCliente()).setPaqXmarco(1);
+                 Simulacion.readyList.get(evento.getIdCliente()).setTotalPaq(evento.getCantPaq());
                
-                  if((Simulacion.readyList.get(cosa.getIdCliente()).getPaqXmarco())==(Simulacion.readyList.get(cosa.getIdCliente()).getTotalPaq())){
-                    Simulacion.readyList.get(cosa.getIdCliente()).AumentaMarcosCompletos();
+                 // if((Simulacion.readyList.get(evento.getIdCliente()).getPaqXmarco())==(Simulacion.readyList.get(evento.getIdCliente()).getTotalPaq())){
+                  //  Simulacion.readyList.get(evento.getIdCliente()).AumentaMarcosCompletos();
                    // System.out.println("TotalPaquetesCompletos: "+ listaCliente.get(AppServer.responseList.get(i).getIdCliente()).getTotalPaq());
-                }
+                //}
            }
            
            
         
 
          //for(int k=0; k < Simulacion.listaCliente.size(); k++){
-           /*      System.out.println("ID CLIENTE "+ Simulacion.readyList.get(cosa.getIdCliente()).getIdClient());
-                 System.out.println("PAQXMARCO "+ Simulacion.readyList.get(cosa.getIdCliente()).getPaqXmarco());
-                 System.out.println("TOTAL PAQUETES "+ Simulacion.readyList.get(cosa.getIdCliente()).getTotalPaq());
-                 System.out.println("MARCO ACTUAL "+ Simulacion.readyList.get(cosa.getIdCliente()).getMarcoActual());
-                 System.out.println("MARCOS COMPLETOS "+ Simulacion.readyList.get(cosa.getIdCliente()).getMarcosCompletos());*/
+           /*      System.out.println("ID CLIENTE "+ Simulacion.readyList.get(evento.getIdCliente()).getIdClient());
+                 System.out.println("PAQXMARCO "+ Simulacion.readyList.get(evento.getIdCliente()).getPaqXmarco());
+                 System.out.println("TOTAL PAQUETES "+ Simulacion.readyList.get(evento.getIdCliente()).getTotalPaq());
+                 System.out.println("MARCO ACTUAL "+ Simulacion.readyList.get(evento.getIdCliente()).getMarcoActual());
+                 System.out.println("MARCOS COMPLETOS "+ Simulacion.readyList.get(evento.getIdCliente()).getMarcosCompletos());*/
      
         
     }

@@ -29,7 +29,10 @@ public class Simulacion {
     //Lista de eventos de llegada 
     public static List<Evento> listaEvento = new ArrayList<Evento>();
      
-    
+    //Variables de error
+     public static double E = 0.01;
+     public static int k = 50;  //clientes
+     public static double valorRand = 0.0; //
     
     public static void main(String[] args) {
         
@@ -90,7 +93,7 @@ public class Simulacion {
          readyList.add(cliente2);
          readyList.add(cliente3);
          readyList.add(cliente4);
-         readyList.add(cliente5);
+      /*   readyList.add(cliente5);
          readyList.add(cliente6);
          readyList.add(cliente7);
          readyList.add(cliente8);
@@ -105,7 +108,7 @@ public class Simulacion {
          readyList.add(cliente17);
          readyList.add(cliente18);
          readyList.add(cliente19);
-         readyList.add(cliente20);
+         readyList.add(cliente20);*/
          
          
          
@@ -114,7 +117,7 @@ public class Simulacion {
          listaEvento.add(pet2);
          listaEvento.add(pet3);
          listaEvento.add(pet4);
-         listaEvento.add(pet5);
+      /*   listaEvento.add(pet5);
          listaEvento.add(pet6);
          listaEvento.add(pet7);
          listaEvento.add(pet8);
@@ -129,7 +132,7 @@ public class Simulacion {
          listaEvento.add(pet17);
          listaEvento.add(pet18);
          listaEvento.add(pet19);
-         listaEvento.add(pet20);
+         listaEvento.add(pet20); */
          
         
    
@@ -179,7 +182,7 @@ public class Simulacion {
          System.out.println("\nLO QUE TIENEN LAS LISTAS");
          //Impresión de los elementos en la lista
          for(int i=0; i < readyList.size(); i++){
-            System.out.println("Cliente " + readyList.get(i).getInfo());
+            System.out.print("Cliente " + readyList.get(i).getInfo());
             for(int j=0; j < readyList.get(i).getList().size(); j++){
                 System.out.println(readyList.get(i).getList().get(i).idCliente);
             
@@ -212,10 +215,11 @@ public class Simulacion {
 
              //Si el buffer tiene espacio se agrega un evento
              if(buffer.freeSpace()){
-                 // buffer.getList().add(listaEvento.get(numEvento).getInfo());
-
-                buffer.getList().add(listaEvento.remove(numEvento));
-                CapaRed.readFromBuffer(buffer);   //Se lee del buffer 
+                 //Si su probabilidad es mayor a la probabilida de error 
+                  if(Simulacion.errorCheker()){
+                     buffer.getList().add(listaEvento.remove(numEvento));
+                     CapaRed.readFromBuffer(buffer);   //Se lee del buffer 
+                  }
               }
 
               if(numEvento < size){                        
@@ -225,7 +229,19 @@ public class Simulacion {
             
         }
     }
-   
     
+    
+    public static boolean errorCheker(){
+                valorRand = Math.random();
+              //  System.out.println("\nrandom : "+valorRand);
+              //  System.out.println("multiplicacion:"+(E*k) + "");
+                if(valorRand > (E*k)){
+              //      System.out.println("Si se procesa");
+                    return true;
+                }else{
+                    return false;
+                }
+    }
+   
     
 }
