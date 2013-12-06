@@ -48,6 +48,10 @@ public class AppCliente {
                 setMarcoActual(idMarco);
                 setpaqxMarco(1);
                 setTotalpaq(cantPaq);
+               //En caso de que solamente se tenga un paquete por marco.
+                if(paqXmarco==totalPaq){
+                        marcosCompletos++:
+                } 
            
            }         
            */
@@ -59,7 +63,10 @@ public class AppCliente {
                  Simulacion.readyList.get(cosa.getIdCliente()).setPaqXmarco(1);
                  Simulacion.readyList.get(cosa.getIdCliente()).setTotalPaq(cosa.getCantPaq());
                
-                 
+                  if((Simulacion.readyList.get(cosa.getIdCliente()).getPaqXmarco())==(Simulacion.readyList.get(cosa.getIdCliente()).getTotalPaq())){
+                    Simulacion.readyList.get(cosa.getIdCliente()).AumentaMarcosCompletos();
+                   // System.out.println("TotalPaquetesCompletos: "+ listaCliente.get(AppServer.responseList.get(i).getIdCliente()).getTotalPaq());
+                }
            }
            
            

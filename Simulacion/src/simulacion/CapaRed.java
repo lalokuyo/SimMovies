@@ -53,9 +53,9 @@ public class CapaRed{
         
         System.out.println("FinLista: " + finLista);
         //Mientras haya Clientes con listas 
+        //boolean ivonne = true;
         while(inicioLista < finLista){
-           
-            Cliente auxCliente;     //Cliente Auxiliar
+           Cliente auxCliente;     //Cliente Auxiliar
              
             BigDecimal quantum = new BigDecimal("0.0005");
             BigDecimal time = new BigDecimal("0.0000");
@@ -71,8 +71,8 @@ public class CapaRed{
                 System.out.println("\nAtendiendo cliente: " + auxCliente.idClient);
                 
                 
-                    //Atiendelo por 0.5 segundos mientras su lista no este vacia
-                    while(((time.compareTo(quantum))==-1) && !auxCliente.getList().isEmpty()){
+                    //Atiendelo por 0.5 segundos mientras su lista no este vacia y no estè borrado
+                    while(((time.compareTo(quantum))==-1) && (!auxCliente.getList().isEmpty())){
                        
                        // Simulacion.timeAux = Simulacion.timeAux.add(Simulacion.fijoAux);
                         Simulacion.time = Simulacion.time.add(Simulacion.fijoAux);
@@ -99,15 +99,19 @@ public class CapaRed{
                     //Pregunta si llego alguien
                     Simulacion.clientFinder();
                 
+
+                    
+                    
                 //Verificar si la lista de paquetes ya se acabo 
                 //para sacar al cliente de la lista
                 if(auxCliente.getList().isEmpty()){
-                    System.out.print("\nBorrado " + auxCliente.idClient); 
+                    System.out.print("\nBorradoID " + auxCliente.idClient); 
                     //Simulacion.readyList.remove(auxCliente);
                     inicioLista++;
                     break; //Se tiene que reiniciar el for para que no salte a nadie
                    
                 }
+                
                 
             }
          

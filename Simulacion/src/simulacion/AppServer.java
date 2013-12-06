@@ -35,7 +35,7 @@ public class AppServer {
             
             //Variables de Calculos de paquetes
             double paquetes = 0.0;
-            int mtu = 20;               //Tamaño del paquete
+            int mtu = 1500;               //Tamaño del paquete
             int marco = 0;              //Marco en lectura
             int denom = 0;              //Cantidad de paquetes a enviar
             int cantidadPaquetes = 0;   //Cantidad de paquetes que hay por marco
@@ -44,7 +44,7 @@ public class AppServer {
             //Parametros del evento a crear
             int idMarco = 1;
             int ta = 0;
-            int size = 20; int residuo = 0;
+            int size = 1500; int residuo = 0;
             
             
             while(archIn.ready()){

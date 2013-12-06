@@ -33,6 +33,7 @@ public class Cliente {
         this.totalPaq = totalPaq;
         this.marcosCompletos = marcosCompletos;
         this.marcoActual = marcoActual;
+       
     }
         
         //Lista para el cliente
@@ -109,7 +110,10 @@ public class Cliente {
     //Aumenta el Marco Actual
     public void AumentaMarcoActual(){
         marcoActual++;
+       
     }
+    
+      
     
 }
 

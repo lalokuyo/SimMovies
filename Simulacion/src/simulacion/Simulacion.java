@@ -43,25 +43,95 @@ public class Simulacion {
          Cliente cliente1 = new Cliente(0, 0, 0, 0, 0);
          Cliente cliente2 = new Cliente(1, 0, 0, 0, 0);
          Cliente cliente3 = new Cliente(2, 0, 0, 0, 0);
+         Cliente cliente4 = new Cliente(3, 0, 0, 0, 0);
+         Cliente cliente5 = new Cliente(4, 0, 0, 0, 0);
+         Cliente cliente6 = new Cliente(5, 0, 0, 0, 0);
+         Cliente cliente7 = new Cliente(6, 0, 0, 0, 0);
+         Cliente cliente8 = new Cliente(7, 0, 0, 0, 0);
+         Cliente cliente9 = new Cliente(8, 0, 0, 0, 0);
+         Cliente cliente10 = new Cliente(9, 0, 0, 0, 0);
+         Cliente cliente11 = new Cliente(10, 0, 0, 0, 0);
+         Cliente cliente12 = new Cliente(11, 0, 0, 0, 0);
+         Cliente cliente13 = new Cliente(12, 0, 0, 0, 0);
+         Cliente cliente14 = new Cliente(13, 0, 0, 0, 0);
+         Cliente cliente15 = new Cliente(14, 0, 0, 0, 0);
+         Cliente cliente16 = new Cliente(15, 0, 0, 0, 0);
+         Cliente cliente17 = new Cliente(16, 0, 0, 0, 0);
+         Cliente cliente18 = new Cliente(17, 0, 0, 0, 0);
+         Cliente cliente19 = new Cliente(18, 0, 0, 0, 0);
+         Cliente cliente20 = new Cliente(19, 0, 0, 0, 0);
          
          //Peticiones clientes nuevos (id, marco, time, size, maxPq.)
          Evento pet1 = new Evento(0, 0, 2, 10, 0);
-         Evento pet2 = new Evento(1, 0, 4, 10, 0);
-         Evento pet3 = new Evento(2, 0, 6, 10, 0);   
-         //Evento pet4 = new Evento(2, 0, 9, 10, 0);
+         Evento pet2 = new Evento(1, 0, 3, 10, 0);
+         Evento pet3 = new Evento(2, 0, 4, 10, 0); 
+         Evento pet4 = new Evento(3, 0, 5, 10, 0); 
+         Evento pet5 = new Evento(4, 0, 6, 10, 0);
+         Evento pet6 = new Evento(5, 0, 7, 10, 0);
+         Evento pet7 = new Evento(6, 0, 8, 10, 0);
+         Evento pet8 = new Evento(7, 0, 9, 10, 0); 
+         Evento pet9 = new Evento(8, 0, 10, 10, 0); 
+         Evento pet10 = new Evento(9, 0, 11, 10, 0);
+         Evento pet11 = new Evento(10, 0, 12, 10, 0);
+         Evento pet12 = new Evento(11, 0, 13, 10, 0);
+         Evento pet13 = new Evento(12, 0, 14, 10, 0); 
+         Evento pet14 = new Evento(13, 0, 15, 10, 0); 
+         Evento pet15 = new Evento(14, 0, 16, 10, 0);
+         Evento pet16 = new Evento(15, 0, 17, 10, 0);
+         Evento pet17 = new Evento(16, 0, 18, 10, 0);
+         Evento pet18 = new Evento(17, 0, 19, 10, 0); 
+         Evento pet19 = new Evento(18, 0, 20, 10, 0); 
+         Evento pet20 = new Evento(19, 0, 21, 10, 0);
+         
          
        
          //Se agregan clientes
          readyList.add(cliente1);
          readyList.add(cliente2);
          readyList.add(cliente3);
+         readyList.add(cliente4);
+         readyList.add(cliente5);
+         readyList.add(cliente6);
+         readyList.add(cliente7);
+         readyList.add(cliente8);
+         readyList.add(cliente8);
+         readyList.add(cliente10);
+         readyList.add(cliente11);
+         readyList.add(cliente12);
+         readyList.add(cliente13);
+         readyList.add(cliente14);
+         readyList.add(cliente15);
+         readyList.add(cliente16);
+         readyList.add(cliente17);
+         readyList.add(cliente18);
+         readyList.add(cliente19);
+         readyList.add(cliente20);
+         
+         
          
          //Se agregan peticiones cliente
          listaEvento.add(pet1);
          listaEvento.add(pet2);
          listaEvento.add(pet3);
-         //listaEvento.add(pet4);
-        // listaEvento.add(cliente5);
+         listaEvento.add(pet4);
+         listaEvento.add(pet5);
+         listaEvento.add(pet6);
+         listaEvento.add(pet7);
+         listaEvento.add(pet8);
+         listaEvento.add(pet9);
+         listaEvento.add(pet10);
+         listaEvento.add(pet11);
+         listaEvento.add(pet12);
+         listaEvento.add(pet13);
+         listaEvento.add(pet14);
+         listaEvento.add(pet15);
+         listaEvento.add(pet16);
+         listaEvento.add(pet17);
+         listaEvento.add(pet18);
+         listaEvento.add(pet19);
+         listaEvento.add(pet20);
+         
+        
    
         
          
@@ -109,7 +179,7 @@ public class Simulacion {
          System.out.println("\nLO QUE TIENEN LAS LISTAS");
          //Impresión de los elementos en la lista
          for(int i=0; i < readyList.size(); i++){
-            System.out.println("Cliente" + readyList.get(i).idClient);
+            System.out.println("Cliente " + readyList.get(i).getInfo());
             for(int j=0; j < readyList.get(i).getList().size(); j++){
                 System.out.println(readyList.get(i).getList().get(i).idCliente);
             
