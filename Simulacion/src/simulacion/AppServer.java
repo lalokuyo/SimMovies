@@ -48,6 +48,8 @@ public class AppServer {
             
             
             while(archIn.ready()){
+                
+                
                linea = archIn.readLine();
                marco = Integer.parseInt(linea); //524
                paquetes = (double)marco/mtu; //26.2
@@ -70,6 +72,8 @@ public class AppServer {
                   // System.out.print("Paquete a agregar: " + paquete.getInfo() + " en "+ Simulacion.readyList.get(idCliente).idClient);
                    Simulacion.readyList.get(idCliente).getList().add(paquete);
                    ta++;
+                   
+                   Simulacion.timeAux = Simulacion.timeAux.add(Simulacion.fijoAux);
                    Simulacion.time = Simulacion.time.add(Simulacion.fijoAux);
                }
                
@@ -79,6 +83,8 @@ public class AppServer {
                    Simulacion.readyList.get(idCliente).getList().add(paquete);
                    resta = false;
                    residuo = 0;
+                   
+                   Simulacion.timeAux = Simulacion.timeAux.add(Simulacion.fijoAux);
                    Simulacion.time = Simulacion.time.add(Simulacion.fijoAux);
                }
                

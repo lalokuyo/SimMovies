@@ -54,13 +54,9 @@ public class CapaRed{
         System.out.println("FinLista: " + finLista);
         //Mientras haya Clientes con listas 
         while(inicioLista < finLista){
-        //while(inicioLista < Simulacion.readyList.size()){
            
             Cliente auxCliente;     //Cliente Auxiliar
-            //double quantum = 1.0;
-            //BigDecimal quantum = new BigDecimal("0.5");
-            //BigDecimal time = new BigDecimal("0.0000
-            
+             
             BigDecimal quantum = new BigDecimal("0.0005");
             BigDecimal time = new BigDecimal("0.0000");
             BigDecimal fijo = new BigDecimal("0.0001");
@@ -77,9 +73,10 @@ public class CapaRed{
                 
                     //Atiendelo por 0.5 segundos mientras su lista no este vacia
                     while(((time.compareTo(quantum))==-1) && !auxCliente.getList().isEmpty()){
+                       
+                       // Simulacion.timeAux = Simulacion.timeAux.add(Simulacion.fijoAux);
+                        Simulacion.time = Simulacion.time.add(Simulacion.fijoAux);
                         
-                       // if(!auxCliente.getList().isEmpty()){
-
                             //Se agregan al buffer los paquetes si es que tiene espacio
                             //de lo contrario se pierden...
                             if(Simulacion.buffer.freeSpace()){
@@ -100,7 +97,7 @@ public class CapaRed{
                     time = zero;
                     
                     //Pregunta si llego alguien
-                  //  Simulacion.clientFinder();
+                    Simulacion.clientFinder();
                 
                 //Verificar si la lista de paquetes ya se acabo 
                 //para sacar al cliente de la lista
