@@ -31,7 +31,7 @@ public class Simulacion {
      
     //Variables de error
      public static double E = 0.01;
-     public static int k = 0;  //clientes
+     public static int k = 20;  //clientes
      public static double valorRand = 0.0; //
     
     public static void main(String[] args) {
@@ -39,8 +39,6 @@ public class Simulacion {
         
         //****************** VARIABLES ***************************************
         
-        
-         
          
          //Clientes predefinidos
          Cliente cliente1 = new Cliente(0, 0, 0, 0, 0);
@@ -66,31 +64,32 @@ public class Simulacion {
          
          //Peticiones clientes nuevos (id, marco, time, size, maxPq.)
          Evento pet1 = new Evento(0, 0, 2, 10, 0);
-         Evento pet2 = new Evento(1, 0, 4, 10, 0);
-         Evento pet3 = new Evento(2, 0, 6, 10, 0); 
-         Evento pet4 = new Evento(3, 0, 8, 10, 0); 
-         Evento pet5 = new Evento(4, 0, 10, 10, 0);
-         Evento pet6 = new Evento(5, 0, 12, 10, 0);
-         Evento pet7 = new Evento(6, 0, 14, 10, 0);
-         Evento pet8 = new Evento(7, 0, 16, 10, 0); 
-         Evento pet9 = new Evento(8, 0, 18, 10, 0); 
-         Evento pet10 = new Evento(9, 0, 20, 10, 0);
-         Evento pet11 = new Evento(10, 0, 22, 10, 0);
-         Evento pet12 = new Evento(11, 0, 24, 10, 0);
-         Evento pet13 = new Evento(12, 0, 26, 10, 0); 
-         Evento pet14 = new Evento(13, 0, 28, 10, 0); 
-         Evento pet15 = new Evento(14, 0, 30, 10, 0);
-         Evento pet16 = new Evento(15, 0, 32, 10, 0);
-         Evento pet17 = new Evento(16, 0, 34, 10, 0);
-         Evento pet18 = new Evento(17, 0, 36, 10, 0); 
-         Evento pet19 = new Evento(18, 0, 38, 10, 0); 
-         Evento pet20 = new Evento(19, 0, 40, 10, 0);
+         Evento pet2 = new Evento(1, 0, 3, 10, 0);
+         Evento pet3 = new Evento(2, 0, 4, 10, 0); 
+         Evento pet4 = new Evento(3, 0, 5, 10, 0); 
+         Evento pet5 = new Evento(4, 0, 6, 10, 0);
+         Evento pet6 = new Evento(5, 0, 7, 10, 0);
+         Evento pet7 = new Evento(6, 0, 8, 10, 0);
+         Evento pet8 = new Evento(7, 0, 9, 10, 0); 
+         Evento pet9 = new Evento(8, 0, 10, 10, 0); 
+         Evento pet10 = new Evento(9, 0, 11, 10, 0);
+         Evento pet11 = new Evento(10, 0, 12, 10, 0);
+         Evento pet12 = new Evento(11, 0, 13, 10, 0);
+         Evento pet13 = new Evento(12, 0, 14, 10, 0); 
+         Evento pet14 = new Evento(13, 0, 15, 10, 0); 
+         Evento pet15 = new Evento(14, 0, 16, 10, 0);
+         Evento pet16 = new Evento(15, 0, 17, 10, 0);
+         Evento pet17 = new Evento(16, 0, 18, 10, 0);
+         Evento pet18 = new Evento(17, 0, 19, 10, 0); 
+         Evento pet19 = new Evento(18, 0, 20, 10, 0); 
+         Evento pet20 = new Evento(19, 0, 21, 10, 0);
+         
          
        
          //Se agregan clientes
          readyList.add(cliente1);
          readyList.add(cliente2);
-         readyList.add(cliente3);
+       /*  readyList.add(cliente3);
          readyList.add(cliente4);
          readyList.add(cliente5);
          readyList.add(cliente6);
@@ -107,14 +106,14 @@ public class Simulacion {
          readyList.add(cliente17);
          readyList.add(cliente18);
          readyList.add(cliente19);
-         readyList.add(cliente20);
+         readyList.add(cliente20);*/
          
          
          
          //Se agregan peticiones cliente
          listaEvento.add(pet1);
          listaEvento.add(pet2);
-         listaEvento.add(pet3);
+        /* listaEvento.add(pet3);
          listaEvento.add(pet4);
          listaEvento.add(pet5);
          listaEvento.add(pet6);
@@ -131,7 +130,7 @@ public class Simulacion {
          listaEvento.add(pet17);
          listaEvento.add(pet18);
          listaEvento.add(pet19);
-         listaEvento.add(pet20); 
+         listaEvento.add(pet20); */
          
         
    
@@ -145,33 +144,7 @@ public class Simulacion {
             // System.out.print(time + " tAux: " + timeAux);
              System.out.print(time);
              clientFinder();
-            /* System.out.print(time + " ");
-            double tiempoTemp = (double)listaEvento.get(numEvento).getTa();
-            aux = new BigDecimal(tiempoTemp); //Este es el Ta del evento convertido a BD
-
-            //Se truncan los decimales del tiempo
-            BigDecimal trunc = time.setScale(1,BigDecimal.ROUND_DOWN);
-            //Si el tiempo de llegada es igual al tiempo del contador
-            if(trunc.compareTo(aux) == 0){  
-              System.out.println(" num: "+ listaEvento.get(numEvento).getTa());
-
-              System.out.print("Entro a buffer: "+buffer.freeSpace());
-
-             //Si el buffer tiene espacio se agrega un evento
-             if(buffer.freeSpace()){
-                 // buffer.getList().add(listaEvento.get(numEvento).getInfo());
-
-                buffer.getList().add(listaEvento.get(numEvento));
-                CapaRed.readFromBuffer(buffer);   //Se lee del buffer 
-              }
-
-              //CapaRed.addToBuffer(listaEvento.get(numEvento));  //Escribe desde otro lado
-              //buffer.getList().add(name);
-              if(numEvento < size){                        
-                numEvento++;
-              }
-           } */
-                  
+                 
              System.out.println(""); 
           
              time = time.add(otrofijoAux);
@@ -181,12 +154,15 @@ public class Simulacion {
          System.out.println("\nLO QUE TIENEN LAS LISTAS");
          //Impresión de los elementos en la lista
          for(int i=0; i < readyList.size(); i++){
-            System.out.print("Cliente " + readyList.get(i).getInfo());
+            System.out.print("Cliente " + readyList.get(i).getInfo() );
+            System.out.println("Completos: " + ((double)readyList.get(i).marcosCompletos/(double)readyList.get(i).getMarcoActual()) );
             for(int j=0; j < readyList.get(i).getList().size(); j++){
                 System.out.println(readyList.get(i).getList().get(i).idCliente);
             
             }
          }
+         
+         
          
          //Impresión de los elementos en la lista
          for(int i=0; i < buffer.getList().size(); i++){
@@ -238,8 +214,6 @@ public class Simulacion {
     
     public static boolean errorCheker(){
                 valorRand = Math.random();
-              //  System.out.println("\nrandom : "+valorRand);
-              //  System.out.println("multiplicacion:"+(E*k) + "");
                 if(valorRand > (E*k)){
               //      System.out.println("Si se procesa");
                     return true;
