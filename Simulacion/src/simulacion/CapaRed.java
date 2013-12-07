@@ -64,7 +64,7 @@ public class CapaRed{
             //Para cada cliente 
             for(int i=inicioLista; i < finLista; i++){
                 auxCliente = Simulacion.readyList.get(i);
-                System.out.println("\nAtendiendo cliente: " + auxCliente.idClient);
+                //System.out.println("\nAtendiendo cliente: " + auxCliente.idClient);
                 
                 
                     //Atiendelo por 0.5 segundos mientras su lista no este vacia y no estè borrado
