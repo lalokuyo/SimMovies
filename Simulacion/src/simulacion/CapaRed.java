@@ -20,10 +20,15 @@ public class CapaRed{
     public static void readFromBuffer(Buffer buffer){
         int index = 0;
         Evento evento;
+        //Buffer buffer = buf;
+        //System.out.print(buffer.getList().);
         
         //Mientras existan elementos Cliente en el buffer se verifica 
+     //  while(!buffer.getList().isEmpty()){
         for(int i=0; i < buffer.getList().size(); i++){
                         
+            
+            System.out.println("idMarco: " + buffer.getList().get(index).idMarco);
            //Si el evento es un Cliente -> procesa su lista
             if(buffer.getList().get(i).idMarco == 0){
                 
@@ -128,13 +133,16 @@ public class CapaRed{
     
       public static void disminuyeTiempo(){
         if(!Simulacion.buffer.getList().isEmpty()){
-          //Se disminuye el tiempo de espera por paquete hasta que sea 0
+            System.out.println(" Menos");
+            
+            
+            //Se disminuye el tiempo de espera por paquete hasta que sea 0
             if (Simulacion.buffer.getList().get(0).espera > 0){
 
                 for(int i=0; i < Simulacion.buffer.getList().size(); i++){
                     Simulacion.buffer.getList().get(i).espera--;
                 }
-               // System.out.println("\nDISMINUYE!!!!*** " + Simulacion.buffer.getList().get(0).espera);
+                System.out.println("\nDISMINUYE!!!!*** " + Simulacion.buffer.getList().get(0).espera);
 
             }        
           
