@@ -64,7 +64,7 @@ public class CapaRed{
             //Para cada cliente 
             for(int i=inicioLista; i < finLista; i++){
                 auxCliente = Simulacion.readyList.get(i);
-                //System.out.println("\nAtendiendo cliente: " + auxCliente.idClient);
+                System.out.println("\nAtendiendo cliente: " + auxCliente.idClient);
                 
                 
                     //Atiendelo por 0.5 segundos mientras su lista no este vacia y no estè borrado
@@ -78,8 +78,8 @@ public class CapaRed{
                             if(Simulacion.buffer.freeSpace()){
                                 
                                 //Si paso el error
-                                if(Simulacion.errorCheker()){
-                                  //  System.out.print(" time " + time + " idC: " + auxCliente.getList().get(paquete).getInfo());
+                                if(Simulacion.errorCheck()){
+                                    System.out.print( auxCliente.getList().get(paquete).getInfo());
                                     Buffer.buffer.add(auxCliente.getList().remove(paquete));
                                     //Se vuelve a llamar a lectura para ir vaciando el buffer **
                                     disminuyeTiempo();
@@ -90,12 +90,14 @@ public class CapaRed{
                                     System.out.print("\nBasura - size " + Buffer.buffer.size());
                                     auxCliente.getList().remove(paquete);
                                     disminuyeTiempo();
+                                    Simulacion.totalRechazados++;
                                 }
 
                             }else{ //Si no pasa por buffer lleno tiralo
                                 System.out.print("\nBasura - size " + Buffer.buffer.size());
                                 auxCliente.getList().remove(paquete);
                                 disminuyeTiempo();
+                                Simulacion.totalRechazados++;
                             }
                             
                             time = time.add(fijo);

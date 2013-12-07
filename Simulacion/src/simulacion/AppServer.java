@@ -65,9 +65,10 @@ public class AppServer {
                    cantidadPaquetes = denom + 1;
                    
                }
+               Simulacion.totalPaquetes += cantidadPaquetes;
                
                //For para agregar cada paquete a una lista de atención
-               for(int i=0; i<denom; i++){
+               for(int i=0; i<cantidadPaquetes; i++){
                    Evento paquete = new Evento(idCliente, idMarco, ta, size, cantidadPaquetes);
                   // System.out.print("Paquete a agregar: " + paquete.getInfo() + " en "+ Simulacion.readyList.get(idCliente).idClient);
                    Simulacion.readyList.get(idCliente).getList().add(paquete);
