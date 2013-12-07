@@ -31,7 +31,7 @@ public class Simulacion {
      
     //Variables de error
      public static double E = 0.01;
-     public static int k = 0;  //clientes
+     public static int k = 10;  //clientes
      public static double valorRand = 0.0; //
     
     public static void main(String[] args) {
@@ -91,7 +91,7 @@ public class Simulacion {
          //Se agregan clientes
          readyList.add(cliente1);
          readyList.add(cliente2);
-         /*readyList.add(cliente3);
+         readyList.add(cliente3);
          readyList.add(cliente4);
          readyList.add(cliente5);
          readyList.add(cliente6);
@@ -108,14 +108,14 @@ public class Simulacion {
          readyList.add(cliente17);
          readyList.add(cliente18);
          readyList.add(cliente19);
-         readyList.add(cliente20);*/
+         readyList.add(cliente20);
          
          
          
          //Se agregan peticiones cliente
          listaEvento.add(pet1);
          listaEvento.add(pet2);
-         /*listaEvento.add(pet3);
+         listaEvento.add(pet3);
          listaEvento.add(pet4);
          listaEvento.add(pet5);
          listaEvento.add(pet6);
@@ -133,7 +133,7 @@ public class Simulacion {
          listaEvento.add(pet18);
          listaEvento.add(pet19);
          listaEvento.add(pet20); 
-         */
+         
         
    
         
@@ -146,33 +146,7 @@ public class Simulacion {
             // System.out.print(time + " tAux: " + timeAux);
              System.out.print(time);
              clientFinder();
-            /* System.out.print(time + " ");
-            double tiempoTemp = (double)listaEvento.get(numEvento).getTa();
-            aux = new BigDecimal(tiempoTemp); //Este es el Ta del evento convertido a BD
-
-            //Se truncan los decimales del tiempo
-            BigDecimal trunc = time.setScale(1,BigDecimal.ROUND_DOWN);
-            //Si el tiempo de llegada es igual al tiempo del contador
-            if(trunc.compareTo(aux) == 0){  
-              System.out.println(" num: "+ listaEvento.get(numEvento).getTa());
-
-              System.out.print("Entro a buffer: "+buffer.freeSpace());
-
-             //Si el buffer tiene espacio se agrega un evento
-             if(buffer.freeSpace()){
-                 // buffer.getList().add(listaEvento.get(numEvento).getInfo());
-
-                buffer.getList().add(listaEvento.get(numEvento));
-                CapaRed.readFromBuffer(buffer);   //Se lee del buffer 
-              }
-
-              //CapaRed.addToBuffer(listaEvento.get(numEvento));  //Escribe desde otro lado
-              //buffer.getList().add(name);
-              if(numEvento < size){                        
-                numEvento++;
-              }
-           } */
-                  
+                 
              System.out.println(""); 
           
              time = time.add(otrofijoAux);
@@ -188,6 +162,8 @@ public class Simulacion {
             
             }
          }
+         
+         
          
          //Impresión de los elementos en la lista
          for(int i=0; i < buffer.getList().size(); i++){
@@ -239,8 +215,6 @@ public class Simulacion {
     
     public static boolean errorCheker(){
                 valorRand = Math.random();
-              //  System.out.println("\nrandom : "+valorRand);
-              //  System.out.println("multiplicacion:"+(E*k) + "");
                 if(valorRand > (E*k)){
               //      System.out.println("Si se procesa");
                     return true;
