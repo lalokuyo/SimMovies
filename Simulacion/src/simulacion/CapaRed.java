@@ -68,7 +68,7 @@ public class CapaRed{
                 
                 
                     //Atiendelo por 0.5 segundos mientras su lista no este vacia y no estè borrado
-                    while(((time.compareTo(quantum))==-1) && (!auxCliente.getList().isEmpty())){
+                    while(((time.compareTo(quantum)) == -1) && (!auxCliente.getList().isEmpty())){
                        
                        // Simulacion.timeAux = Simulacion.timeAux.add(Simulacion.fijoAux);
                         Simulacion.time = Simulacion.time.add(Simulacion.fijoAux);
@@ -79,7 +79,7 @@ public class CapaRed{
                                 
                                 //Si paso el error
                                 if(Simulacion.errorCheker()){
-                                    System.out.print(" time " + time + " idC: " + auxCliente.getList().get(paquete).getInfo());
+                                  //  System.out.print(" time " + time + " idC: " + auxCliente.getList().get(paquete).getInfo());
                                     Buffer.buffer.add(auxCliente.getList().remove(paquete));
                                     //Se vuelve a llamar a lectura para ir vaciando el buffer **
                                     disminuyeTiempo();

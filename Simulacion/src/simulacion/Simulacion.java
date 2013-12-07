@@ -10,36 +10,37 @@ import java.util.*;
 
 public class Simulacion {
     
+    //************** VARIABLES DE TIEMPO DE SIMULACION ****************
     public static BigDecimal time = new BigDecimal("0.0000");
     //public static BigDecimal timeAux = new BigDecimal("0.0000");
     public static BigDecimal fin = new BigDecimal("100.000");
     public static BigDecimal fijo = new BigDecimal("0.5");
     public static BigDecimal fijoAux = new BigDecimal("0.0001");
-     public static BigDecimal otrofijoAux = new BigDecimal("0.1");
+    public static BigDecimal otrofijoAux = new BigDecimal("0.1");
     public static BigDecimal aux;
     
     public static int numEvento= 0;
     public static int size;
     
-    
-    public static Buffer buffer = new Buffer(500);
+    //************** LISTAS  ******************************************
+    public static Buffer buffer = new Buffer(50);
     
     //Lista de clientes predefinidos
     public static List<Cliente> readyList = new ArrayList<Cliente>();
     //Lista de eventos de llegada 
     public static List<Evento> listaEvento = new ArrayList<Evento>();
      
-    //Variables de error
-     public static double E = 0.01;
-     public static int k = 20;  //clientes
-     public static double valorRand = 0.0; //
+    //************** VARIABLES DE ERROR *******************************
+     public static double E = 0.001;
+     public static int k = 30;  //clientes
+     public static double valorRand = 0.0; 
     
-    public static void main(String[] args) {
-        
-        
-        //****************** VARIABLES ***************************************
-        
-         
+     
+     
+    public static void main(String[] args) {    
+
+        //****************** DEFINICION DE CLIENTES ***************************************
+               
          //Clientes predefinidos
          Cliente cliente1 = new Cliente(0, 0, 0, 0, 0);
          Cliente cliente2 = new Cliente(1, 0, 0, 0, 0);
@@ -61,6 +62,15 @@ public class Simulacion {
          Cliente cliente18 = new Cliente(17, 0, 0, 0, 0);
          Cliente cliente19 = new Cliente(18, 0, 0, 0, 0);
          Cliente cliente20 = new Cliente(19, 0, 0, 0, 0);
+         Cliente cliente21 = new Cliente(20, 0, 0, 0, 0);
+         Cliente cliente22 = new Cliente(21, 0, 0, 0, 0);
+         Cliente cliente23 = new Cliente(22, 0, 0, 0, 0);
+         Cliente cliente24 = new Cliente(23, 0, 0, 0, 0);
+         Cliente cliente25 = new Cliente(24, 0, 0, 0, 0);
+         Cliente cliente26 = new Cliente(25, 0, 0, 0, 0);
+         Cliente cliente27 = new Cliente(26, 0, 0, 0, 0);
+         Cliente cliente28 = new Cliente(27, 0, 0, 0, 0);
+         Cliente cliente29 = new Cliente(28, 0, 0, 0, 0);
          
          //Peticiones clientes nuevos (id, marco, time, size, maxPq.)
          Evento pet1 = new Evento(0, 0, 2, 10, 0);
@@ -83,19 +93,27 @@ public class Simulacion {
          Evento pet18 = new Evento(17, 0, 19, 10, 0); 
          Evento pet19 = new Evento(18, 0, 20, 10, 0); 
          Evento pet20 = new Evento(19, 0, 21, 10, 0);
-         
+         Evento pet21 = new Evento(20, 0, 22, 10, 0);
+         Evento pet22 = new Evento(21, 0, 23, 10, 0);
+         Evento pet23 = new Evento(22, 0, 24, 10, 0); 
+         Evento pet24 = new Evento(23, 0, 25, 10, 0); 
+         Evento pet25 = new Evento(24, 0, 26, 10, 0);
+         Evento pet26 = new Evento(25, 0, 27, 10, 0);
+         Evento pet27 = new Evento(26, 0, 28, 10, 0);
+         Evento pet28 = new Evento(27, 0, 29, 10, 0); 
+         Evento pet29 = new Evento(28, 0, 30, 10, 0); 
          
        
          //Se agregan clientes
          readyList.add(cliente1);
          readyList.add(cliente2);
-       /*  readyList.add(cliente3);
+         readyList.add(cliente3);
          readyList.add(cliente4);
          readyList.add(cliente5);
          readyList.add(cliente6);
          readyList.add(cliente7);
          readyList.add(cliente8);
-         readyList.add(cliente8);
+         readyList.add(cliente9);
          readyList.add(cliente10);
          readyList.add(cliente11);
          readyList.add(cliente12);
@@ -106,14 +124,23 @@ public class Simulacion {
          readyList.add(cliente17);
          readyList.add(cliente18);
          readyList.add(cliente19);
-         readyList.add(cliente20);*/
+         readyList.add(cliente20);
+         readyList.add(cliente21);
+         readyList.add(cliente22);
+         readyList.add(cliente23);
+         readyList.add(cliente24);
+         readyList.add(cliente25);
+         readyList.add(cliente26);
+         readyList.add(cliente27);
+         readyList.add(cliente28);
+         readyList.add(cliente29);
          
          
          
          //Se agregan peticiones cliente
          listaEvento.add(pet1);
          listaEvento.add(pet2);
-        /* listaEvento.add(pet3);
+         listaEvento.add(pet3);
          listaEvento.add(pet4);
          listaEvento.add(pet5);
          listaEvento.add(pet6);
@@ -130,7 +157,16 @@ public class Simulacion {
          listaEvento.add(pet17);
          listaEvento.add(pet18);
          listaEvento.add(pet19);
-         listaEvento.add(pet20); */
+         listaEvento.add(pet20);
+         listaEvento.add(pet21);
+         listaEvento.add(pet22);
+         listaEvento.add(pet23);
+         listaEvento.add(pet24);
+         listaEvento.add(pet25);
+         listaEvento.add(pet26);
+         listaEvento.add(pet27);
+         listaEvento.add(pet28);
+         listaEvento.add(pet29);
          
         
    
@@ -183,7 +219,7 @@ public class Simulacion {
 
             //Se truncan los decimales del tiempo
             BigDecimal trunc = time.setScale(1,BigDecimal.ROUND_DOWN);
-            System.out.print(" Entra: " + trunc);
+           // System.out.print(" Entra: " + trunc);
             //Si el tiempo de llegada es igual al tiempo del contador
             if(trunc.compareTo(aux) == 0){  
               System.out.println(" num: "+ listaEvento.get(numEvento).getTa());
